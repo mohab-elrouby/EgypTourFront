@@ -1,7 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path:'comment',loadChildren:()=>import('src/app/comment/comment.module').then((m)=>m.CommentModule)},
+  {path:'tourist',loadChildren:()=>import('src/app/tourist/tourist.module').then((m)=>m.TouristModule)},
+  {path:'trip',loadChildren:()=>import('src/app/trip/trip.module').then((m)=>m.TripModule)},
+  {path:'activity',loadChildren:()=>import('src/app/activity/activity.module').then((m)=>m.ActivityModule)},
+  {path:'localreview',loadChildren:()=>import('src/app/local-review/local-review.module').then((m)=>m.LocalReviewModule)},
+  {path:'servicereview',loadChildren:()=>import('src/app/service-review/service-review.module').then((m)=>m.ServiceReviewModule)},
+  {path:'service',loadChildren:()=>import('src/app/service/service.module').then((m)=>m.ServiceModule)},
+  {path:'localperson',loadChildren:()=>import('src/app/local-person/local-person.module').then((m)=>m.LocalPersonModule)},
+  {path:'post',loadChildren:()=>import('src/app/post/post.module').then((m)=>m.PostModule)}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
