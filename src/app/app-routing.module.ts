@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HomePageComponent } from './home/Components/home-page/home-page.component';
 
 const routes: Routes = [
+  {path: '', redirectTo: '/home', pathMatch:'full'},
+  {path:'home',component:HomePageComponent},
   {path:'comment',loadChildren:()=>import('src/app/comment/comment.module').then((m)=>m.CommentModule)},
   {path:'tourist',loadChildren:()=>import('src/app/tourist/tourist.module').then((m)=>m.TouristModule)},
   {path:'trip',loadChildren:()=>import('src/app/trip/trip.module').then((m)=>m.TripModule)},
