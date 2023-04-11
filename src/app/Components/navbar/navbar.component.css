@@ -1,0 +1,16 @@
+.nav-item {
+    font-size: 1.05rem;
+}
+
+.first{
+    flex-grow: 1;
+}
+
+.btn-login{
+    border: 1px solid #dbd8d8;
+}
+
+.btn-login:hover{
+    background-color: #dbd8d8;
+    transition: 0.3s ease-in-out all;
+}

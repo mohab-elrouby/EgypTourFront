@@ -1,0 +1,15 @@
+
+<section class="container d-sm-flex">
+<div class="row mb-5 mx-sm-auto" >
+    
+<div class=" col-md-6 col-sm-12 mt-5" *ngFor="let item of content">
+    <img src={{item.img}} class="img  px-2" alt="" width="300px" height="170px">
+    <div class="d-flex mt-3">
+        <span class="fs-1 header">{{item.id}}</span>
+        <h1 class="text-muted my-1">{{item.header}}</h1>
+    </div>
+<p class="text-secondary fs-6 w-75 content">{{item.content}}</p>
+</div>
+</div>
+
+</section>
