@@ -1,3 +1,16 @@
 .header-text {
   color :#9a9a9a;
 }
+
+/* @media screen and (min-width:576px) {
+  .carousel-inner {
+    display: flex;
+    
+  }
+  .carsouel-item{
+    display: block;
+    margin-right: 0;
+    flex:0 0 calc(100%/3)
+  }
+} */
+

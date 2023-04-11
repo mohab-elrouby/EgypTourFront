@@ -1054,6 +1054,7 @@ button {
 
 .choosee option {
   padding: 100rem 50rem;
+   flex-grow: flex-1;
 }
 .choosee:focus{
   outline:none;
@@ -1063,4 +1064,9 @@ button {
     height: 3.75rem;
   }
 
+}
+
+.search-container {
+  padding: 1rem;
+  background-color:rgba(255, 255, 255, 0.3);
 }
