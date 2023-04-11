@@ -6,6 +6,7 @@ import { CitiesSectionComponent } from './Components/cities-section/cities-secti
 import { CityCardComponent } from './Components/city-card/city-card.component';
 import {MatCardModule} from '@angular/material/card';
 import { HomePageComponent } from './Components/home-page/home-page.component';
+import { DescriptionSectionComponent } from './Components/description-section/description-section.component';
 
 
 // const routes:Routes=[
@@ -15,6 +16,7 @@ import { HomePageComponent } from './Components/home-page/home-page.component';
    SearchBarComponent,
    CitiesSectionComponent,
    CityCardComponent,
+   DescriptionSectionComponent,
   ],
   imports: [
     CommonModule,
@@ -26,6 +28,7 @@ import { HomePageComponent } from './Components/home-page/home-page.component';
     SearchBarComponent,
     CitiesSectionComponent,
     CityCardComponent,
+    DescriptionSectionComponent
     ]
 })
 export class HomeModule { }
