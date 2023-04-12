@@ -10,12 +10,15 @@ import { HomeModule } from './home/home.module';
 import { FooterComponent } from './Components/footer/footer.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ServiceModule } from './service/service.module';
+import { ServiceComponent } from './service/Components/service/service.component';
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HomePageComponent,
     FooterComponent,
+    ServiceComponent
 
   ],
   imports: [
@@ -24,7 +27,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    HomeModule
+    HomeModule,
+    ServiceModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
