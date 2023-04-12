@@ -6,6 +6,7 @@ import { ServiceComponent } from './Components/service/service.component';
 import { ServiceDescriptionComponent } from './Components/service-description/service-description.component';
 import { ReviewComponent } from './Components/review/review.component';
 import { ReviewListComponent } from './Components/review-list/review-list.component';
+import { ServicereviewformComponent } from './Components/servicereviewform/servicereviewform.component';
 
 const routes:Routes = [
   { path:'servic', component: ServiceComponent }
@@ -17,12 +18,13 @@ const routes:Routes = [
     ServiceDescriptionComponent,
     ReviewComponent,
     ReviewListComponent,
+    ServicereviewformComponent,
   ],
   imports: [
     CommonModule,
     RouterModule,
     RouterModule.forChild(routes)
   ],
-  exports: [LandingSerctionComponent,ServiceDescriptionComponent,ReviewListComponent]
+  exports: [LandingSerctionComponent,ServiceDescriptionComponent,ReviewListComponent,ServicereviewformComponent]
 })
 export class ServiceModule { }

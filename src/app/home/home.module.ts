@@ -6,6 +6,7 @@ import { CityCardComponent } from './Components/city-card/city-card.component';
 import {MatCardModule} from '@angular/material/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomePageComponent } from './Components/home-page/home-page.component';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { DescriptionSectionComponent } from './Components/description-section/description-section.component';
 
 
@@ -19,6 +20,7 @@ import { DescriptionSectionComponent } from './Components/description-section/de
   imports: [
     CommonModule,
     MatCardModule,
+    CarouselModule.forRoot(),
     BrowserAnimationsModule,
     
     // RouterModule.forChild(routes)

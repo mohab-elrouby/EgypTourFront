@@ -1,0 +1,23 @@
+<form action="/process-comment" method="POST">
+  <div class="row">
+    <label>Review</label>
+      <div class="col-sm-12">
+    
+          <ul class="list-inline rating-list" 
+              *ngFor="let star of stars" style="display: inline-block" >
+                <li (click)="countStar(star)"
+                    [ngClass]="{'selected': (star <= selectedValue)}">
+                  <i class="fa fa-star"></i>
+                </li> 
+          </ul>
+      </div>
+      <div>
+
+  <label for="comment">Comment:</label><br>
+  <textarea id="comment" name="comment" rows="4" cols="50"></textarea><br>
+
+  <input type="submit" value="Submit">
+</div>
+</div>
+</form>
+

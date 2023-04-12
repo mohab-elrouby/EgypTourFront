@@ -11,7 +11,31 @@ import { Component, } from '@angular/core';
 
 
 export class CitiesSectionComponent {
-
-
-   
+  items = [
+    {
+      title: 'Item 1',
+      description: '',
+      image: '../../../../assets/images/aswan-card.jpg'
+    },
+    {
+      title: 'Item 2',
+      description: '',
+      image: '../../../../assets/images/aswan-card.jpg'
+    },
+    {
+      title: 'Item 3',
+      description: '',
+      image: '../../../../assets/images/aswan-card.jpg'
+    },
+    {
+      title: 'Item 4',
+      description: '',
+      image: '../../../../assets/images/aswan-card.jpg'
+    },
+    {
+      title: 'Item 5',
+      description: '',
+      image: '../../../../assets/images/aswan-card.jpg'
+    }
+  ];
 }
