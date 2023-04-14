@@ -17,7 +17,6 @@ const routes: Routes = [
   {path:'user',loadChildren:()=>import('src/app/authentication/authentication.module').then((m)=>m.AuthenticationModule)},
   {path:'search/:page',loadChildren:()=>import('src/app/Search/Search.module').then((m)=>m.SearchModule)},
   {path:'trips',loadChildren:()=>import('src/app/trip/trip.module').then((m)=>m.TripModule)}
-
 ];
 
 @NgModule({
