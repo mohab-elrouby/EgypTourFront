@@ -2,6 +2,7 @@ import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './home/Components/home-page/home-page.component';
 import { ServiceComponent } from './service/Components/service/service.component';
+import { PostComponent } from './post/Components/post/post.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch:'full'},
@@ -14,7 +15,7 @@ const routes: Routes = [
   {path:'servicereview',loadChildren:()=>import('src/app/service-review/service-review.module').then((m)=>m.ServiceReviewModule)},
   {path:'service',component:ServiceComponent},
   {path:'localperson',loadChildren:()=>import('src/app/local-person/local-person.module').then((m)=>m.LocalPersonModule)},
-  {path:'post',loadChildren:()=>import('src/app/post/post.module').then((m)=>m.PostModule)}
+  {path:'post',component:PostComponent},
 ];
 
 @NgModule({

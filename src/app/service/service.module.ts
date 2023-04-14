@@ -7,9 +7,10 @@ import { ServiceDescriptionComponent } from './Components/service-description/se
 import { ReviewComponent } from './Components/review/review.component';
 import { ReviewListComponent } from './Components/review-list/review-list.component';
 import { ServicereviewformComponent } from './Components/servicereviewform/servicereviewform.component';
+import { ConvertRatingToStarsPipe } from './Pipes/convert-rating-to-stars.pipe';
 
 const routes:Routes = [
-  { path:'servic', component: ServiceComponent }
+  { path:'service', component: ServiceComponent }
 ];
 
 @NgModule({
@@ -19,11 +20,12 @@ const routes:Routes = [
     ReviewComponent,
     ReviewListComponent,
     ServicereviewformComponent,
+    ConvertRatingToStarsPipe,
   ],
   imports: [
     CommonModule,
     RouterModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
   ],
   exports: [LandingSerctionComponent,ServiceDescriptionComponent,ReviewListComponent,ServicereviewformComponent]
 })

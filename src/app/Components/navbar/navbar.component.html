@@ -1,5 +1,5 @@
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light web">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">EgyTour</a>
     <button
@@ -16,52 +16,81 @@
     <div class="collapse navbar-collapse d-flex" id="navbarNav">
 
       <ul class="navbar-nav first">
-        <li class="nav-item icon">
+        <li class="nav-item">
           <a class="nav-link " href="#"><i class="fa-solid fa-house fs-4 text-primary"></i></a>
         </li>
 
+        <li class="nav-item first">
+          <a class="nav-link mx-2 mt-1" href="#">MyTrips</a>
+        </li>
+       
+          <li class="nav-item ">
+            <a class="nav-link mx-2"routerLink="posts"><i class="fa-solid fa-users-line fs-4 text-primary"></i></a>
+          </li>
+      
+          <li class="nav-item">
+            <a class="nav-link " href="#"><i class="fa-solid fa-bell fs-4 text-primary"></i></a>
+          </li>
+            
+        <li class="nav-item">
+          <a class="nav-link " routerLink="service">Servic</a>
+        </li>
+       
+          <li class="nav-item">
+            <a class="btn btn-login px-3 mx-3" href="#">Login</a>
+          </li>
+        <li class="nav-item">
+          <a class=" btn btn-primary" href="#">Sign up</a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav> 
+
+ <!-- mobile navbar   -->
+ <nav class="navbar navbar-expand-lg navbar-light bg-light mobile">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">EgyTour</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon" ></span>
+    </button>
+    <div class="collapse navbar-collapse d-flex">
+
+      <ul class="navbar-nav first">
         <li class="nav-item ">
           <a class="nav-link" href="#">Home</a>
         </li>
-
-        <li class="nav-item first icon">
-          <a class="nav-link mx-2 mt-1" href="#">MyTrips</a>
-        </li>
+      
         <li class="nav-item first">
           <a class="nav-link" href="#">MyTrips</a>
         </li>
 
-          <li class="nav-item icon">
-            <a class="nav-link mx-2" href="#"><i class="fa-solid fa-users-line fs-4 text-primary"></i></a>
-          </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Feed</a>
+            <a class="nav-link" routerLink="posts">Feed</a>
           </li>
-        
-       
-      
-          <li class="nav-item icon">
-            <a class="nav-link " href="#"><i class="fa-solid fa-bell fs-4 text-primary"></i></a>
-          </li>
+          
           <li class="nav-item ">
             <a class="nav-link " href="#">Notification</a>
           </li>
         
         
-        <li class="nav-item icon">
-          <a class="nav-link " routerLink="servic">Servic</a>
+        <li class="nav-item">
+          <a class="nav-link " routerLink="service">Service</a>
         </li>
        
-          <li class="nav-item icon">
-            <a class="btn btn-login px-3 mx-3" href="#">Login</a>
-          </li>
           <li class="nav-item ">
             <a class="nav-link" href="#">Login</a>
           </li>
        
-        <li class="nav-item icon">
-          <a class=" btn btn-primary" href="#">Sign up</a>
-        </li>
         <li class="nav-item ">
           <a class="nav-link" href="#">Sign up</a>
         </li>
@@ -71,3 +100,4 @@
     </div>
   </div>
 </nav>
+

@@ -1,0 +1,27 @@
+.container {
+    width: 60rem;
+}
+
+.post-img{
+    max-width: 100%;
+    
+}
+
+.heart{
+    color: rgb(231, 222, 206);
+}
+.heart:hover{
+    color:red !important;
+}
+
+input{
+    width: 85%;
+    height: 2.5rem;
+    margin-bottom: 1rem;
+}
+input:focus {
+    outline: none;
+}
+.header {
+    flex-grow: 1;
+}

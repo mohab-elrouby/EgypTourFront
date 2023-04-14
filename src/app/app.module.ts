@@ -12,13 +12,16 @@ import { FooterComponent } from './Components/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceModule } from './service/service.module';
 import { ServiceComponent } from './service/Components/service/service.component';
+import { PostComponent } from './post/Components/post/post.component';
+import { PostModule } from './post/post.module';
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HomePageComponent,
     FooterComponent,
-    ServiceComponent
+    ServiceComponent,
+    PostComponent
 
   ],
   imports: [
@@ -29,6 +32,7 @@ import { ServiceComponent } from './service/Components/service/service.component
     BrowserAnimationsModule,
     HomeModule,
     ServiceModule,
+    PostModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -4,13 +4,15 @@
 .first{
     flex-grow: 1;
 }
-@media only screen and (max-width: 991px) {
-    li.icon {
-        display: none;
-    }
-    li:not(.icon){
+@media(max-width: 991px) {
+  
+    .mobile{
         display: block !important;
     }
+ 
+  .web {
+    display: none !important;;
+  }
 }
 
 
@@ -21,12 +23,11 @@
 .btn-login:hover{
     background-color: #dbd8d8;
     transition: 0.3s ease-in-out all;
-}
-li:not(.icon){
-    padding-left: 1rem;
+} 
+ .mobile{
     display: none;
 }
 
-li:not(.icon):hover{
+.mobile li:hover{
     background-color: #dbd8d8;
 }

@@ -1,0 +1,40 @@
+<div class="container mb-5">
+    <div class="row">
+       <div class="col-md-8 mx-auto">
+          <div class="card mt-5">
+             <!-- Card header -->
+             <div class="card-header d-flex  align-items-center">
+                <div class="d-flex align-items-center mt-2 header">
+                   <img src="../../../../assets/images/avatar-male.png" alt="profile picture" class="rounded-circle mr-3" width="50rem;">
+                   <h6 class="fs-6 my-auto ms-2 name">Kareem salah</h6>
+                </div>
+                <span class="text-muted">30m ago</span>
+                <div></div>
+             </div>
+             <!-- Card image -->
+             <div class="card-img-top">
+                <img src="../../../../assets/images/aswan-card.jpg" alt="post image" class="post-img">
+             </div>
+             <!-- Card body -->
+             <div class="card-body">
+                <div class="d-flex align-items-center" >
+                   <div class="d-flex align-items-center heart" (click)="checkLiked()" id="like">
+                      <i class="fas fa-heart mr-2 fs-4 " [style]="isLiked?'color:red' :'color:rgb(231, 222, 206)'"></i>
+                   </div>
+                   <span class="ms-2 text-muted" >4 Likes</span>
+
+                </div>
+                <div class="my-3">
+                   <p class="mb-0">Caption text goes here.</p>
+                </div>
+                <div>
+                    <input placeholder="Add a comment..."/>
+                </div>
+                <div>
+                   <a href="#" class="text-decoration-none font-weight-bold mr-3">View all 5 comments</a>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>

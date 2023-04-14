@@ -14,10 +14,10 @@ section {
     color: white;
    
 }
-.star {
+/* .star {
     border-radius: 15%;
     background-color: red !important;
-}
+} */
 
 @media (max-width: 991px) {
    p {
