@@ -16,7 +16,6 @@ const routes: Routes = [
   {path:'post',loadChildren:()=>import('src/app/post/post.module').then((m)=>m.PostModule)},
   {path:'search/:page',loadChildren:()=>import('src/app/Search/Search.module').then((m)=>m.SearchModule)},
   {path:'trips',loadChildren:()=>import('src/app/trip/trip.module').then((m)=>m.TripModule)}
-
 ];
 
 @NgModule({

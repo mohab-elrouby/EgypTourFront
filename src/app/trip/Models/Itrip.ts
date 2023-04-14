@@ -1,4 +1,3 @@
-export interface Itrip
-{
-    
+export interface Itrip {
+  backgroundImage:string
 }

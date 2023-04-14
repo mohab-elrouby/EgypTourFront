@@ -41,7 +41,6 @@ export class SearchComponent implements OnInit {
     this.searchService.getAllServices(0,this.skip,this.take).subscribe(services =>{
       this.serviceList = services;
       this.numberOfPages = Math.round(600/8);
-      console.log(this.serviceList.services[0]);
 
     const page= Number(this.route.snapshot.paramMap.get('page'));
     if(page<=this.numberOfPages){

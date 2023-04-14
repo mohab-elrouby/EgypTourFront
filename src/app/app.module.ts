@@ -12,7 +12,6 @@ import { SearchModule } from './Search/Search.module';
 import { CommonModule } from '@angular/common';
 import { SearchComponent } from './Search/Search.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
