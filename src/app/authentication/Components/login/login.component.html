@@ -1,0 +1,58 @@
+<div class="container py-1 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-8 col-xl-6">
+        <div class="card">
+          <div class="card-body p-4 p-md-5">
+            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">Login</h3>
+
+            <form class="px-md-2"  [formGroup]="userForm">
+              <div class="row">
+                  <div class="form-outline mb-4 col-md-12">
+                      <label class="form-label" for="form3Example1q">Userame</label>
+                      <input type="text" class="form-control" id="username"
+                      placeholder="Enter username"
+                      name = 'username'
+                      formControlName="username"
+                      [ngClass]="{'is-invalid' : (username?.touched || username?.dirty )
+                      && !username?.valid }"
+                      >
+                      <span class ='invalid-feedback'>
+                          <span *ngIf="username?.errors?.['required']">
+                          please enter your username
+                          </span>
+                          <span *ngIf="username?.errors?.['minlength']">
+                          the username must have at least three characters
+                          </span>
+                      </span>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="form-outline mb-4 col-md-12">
+                      <label class="form-label" for="form3Example1q">Password</label>
+                      <input type="password" class="form-control" id="username"
+                      placeholder="Enter Password"
+                      name = 'Password'
+                      formControlName="password"
+                      [ngClass]="{'is-invalid' : (password?.touched || password?.dirty )
+                      && !password?.valid }"
+                      >
+                      <span class ='invalid-feedback'>
+                          <span *ngIf="password?.errors?.['required']">
+                          please enter a password
+                          </span>
+                          <span *ngIf="password?.errors?.['minlength']">
+                          the password must be at least eghit characters
+                          </span>
+                      </span>
+                  </div>
+              </div>
+              
+              <button type="submit" class="btn btn-success btn-lg mb-1">Login</button>
+
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

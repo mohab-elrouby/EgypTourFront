@@ -13,7 +13,8 @@ const routes: Routes = [
   {path:'servicereview',loadChildren:()=>import('src/app/service-review/service-review.module').then((m)=>m.ServiceReviewModule)},
   {path:'service',loadChildren:()=>import('src/app/service/service.module').then((m)=>m.ServiceModule)},
   {path:'localperson',loadChildren:()=>import('src/app/local-person/local-person.module').then((m)=>m.LocalPersonModule)},
-  {path:'post',loadChildren:()=>import('src/app/post/post.module').then((m)=>m.PostModule)}
+  {path:'post',loadChildren:()=>import('src/app/post/post.module').then((m)=>m.PostModule)},
+  {path:'user',loadChildren:()=>import('src/app/authentication/authentication.module').then((m)=>m.AuthenticationModule)}
 ];
 
 @NgModule({
