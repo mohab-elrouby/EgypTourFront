@@ -1,0 +1,43 @@
+.active-pink-4 input[type=text]:focus:not([readonly]) {
+  border: 2px solid #e90c0c;
+  box-shadow: 0 0 0 1px #f48fb1;
+}
+
+.shadow{
+  box-shadow:  5 0px 0px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06) ;
+}
+
+.form-check label {
+  font-size: medium;
+}
+
+input[type=radio]:checked {
+  background-color: #d9534f;
+}
+
+input:focus:not([readonly]) {
+  border: 2px solid #e90c0c;
+  box-shadow:none;
+}
+
+#exampleDataList{
+  border-radius:1px  ;
+}
+
+
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > span:focus,
+.pagination > li > span:hover
+{
+    color: white;
+    background-color: #eee;
+    border-color: #ddd;
+}
+
+.pagination > .active > a
+{
+    color: white;
+    background-color: #e90c0c !Important;
+    border: solid 1px #e90c0c !Important;
+}
