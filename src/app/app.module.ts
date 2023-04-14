@@ -8,6 +8,10 @@ import { FormsModule } from '@angular/forms';
 import { NavbarComponent} from './Components/navbar/navbar.component'
 import { HomePageComponent } from './home/Components/home-page/home-page.component';
 import { HomeModule } from './home/home.module';
+import { SearchModule } from './Search/Search.module';
+import { CommonModule } from '@angular/common';
+import { SearchComponent } from './Search/Search.component';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +26,9 @@ import { HomeModule } from './home/home.module';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    HomeModule
+    HomeModule,
+    SearchModule,
+    CommonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

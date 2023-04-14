@@ -14,7 +14,10 @@ const routes: Routes = [
   {path:'service',loadChildren:()=>import('src/app/service/service.module').then((m)=>m.ServiceModule)},
   {path:'localperson',loadChildren:()=>import('src/app/local-person/local-person.module').then((m)=>m.LocalPersonModule)},
   {path:'post',loadChildren:()=>import('src/app/post/post.module').then((m)=>m.PostModule)},
-  {path:'user',loadChildren:()=>import('src/app/authentication/authentication.module').then((m)=>m.AuthenticationModule)}
+  {path:'user',loadChildren:()=>import('src/app/authentication/authentication.module').then((m)=>m.AuthenticationModule)},
+  {path:'search/:page',loadChildren:()=>import('src/app/Search/Search.module').then((m)=>m.SearchModule)},
+  {path:'trips',loadChildren:()=>import('src/app/trip/trip.module').then((m)=>m.TripModule)}
+
 ];
 
 @NgModule({
