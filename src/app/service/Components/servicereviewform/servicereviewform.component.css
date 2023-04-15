@@ -18,3 +18,25 @@
     list-style: none;
     margin: 0 0.4rem;
   }
+
+  .btn-review {
+    background-color: red !important;
+    width: 10rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+@media (max-width: 991px) {
+    .btn-review {
+        margin: 1rem auto;
+    }
+ }
+
+ .caption {
+  height:7rem;
+  max-width: 100%;
+  resize: none;
+}
+
+.caption:focus {
+  outline: none;
+}

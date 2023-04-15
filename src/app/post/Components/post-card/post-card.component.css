@@ -1,5 +1,5 @@
 .container {
-    width: 60rem;
+    width: 50rem;
 }
 
 .post-img{
@@ -24,4 +24,8 @@ input:focus {
 }
 .header {
     flex-grow: 1;
+}
+
+i {
+    cursor: pointer;
 }

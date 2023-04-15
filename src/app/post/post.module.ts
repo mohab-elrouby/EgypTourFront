@@ -4,6 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { PostComponent } from './Components/post/post.component';
 import { PostCardComponent } from './Components/post-card/post-card.component';
 import { PostListComponent } from './Components/post-list/post-list.component';
+import { AddPostComponent } from './Components/add-post/add-post.component';
+import { FileInputDirective } from './Directives/file-input.directive';
 
 const routes:Routes = [
   { path:'posts', component: PostComponent }
@@ -12,7 +14,9 @@ const routes:Routes = [
 @NgModule({
   declarations: [
     PostCardComponent,
-    PostListComponent
+    PostListComponent,
+    AddPostComponent,
+    FileInputDirective
   ],
   imports: [
     CommonModule,
@@ -20,6 +24,7 @@ const routes:Routes = [
     RouterModule.forChild(routes),
   ],
   exports: [
-    PostListComponent]
+    AddPostComponent,
+    PostListComponent,]
 })
 export class PostModule { }

@@ -1,0 +1,8 @@
+.caption {
+    height:7rem;
+    max-width: 100%;
+    resize: none;
+}
+.caption:focus {
+    outline: none !important;
+}

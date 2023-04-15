@@ -8,6 +8,7 @@ import { ReviewComponent } from './Components/review/review.component';
 import { ReviewListComponent } from './Components/review-list/review-list.component';
 import { ServicereviewformComponent } from './Components/servicereviewform/servicereviewform.component';
 import { ConvertRatingToStarsPipe } from './Pipes/convert-rating-to-stars.pipe';
+import { ImageCarouselComponent } from './Components/image-carousel/image-carousel.component';
 
 const routes:Routes = [
   { path:'service', component: ServiceComponent }
@@ -21,6 +22,7 @@ const routes:Routes = [
     ReviewListComponent,
     ServicereviewformComponent,
     ConvertRatingToStarsPipe,
+    ImageCarouselComponent,
   ],
   imports: [
     CommonModule,

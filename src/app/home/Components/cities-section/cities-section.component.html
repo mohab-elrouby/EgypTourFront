@@ -3,33 +3,16 @@
   <p class="mx-auto fs-2 ">Explore our most popular cities</p>
   <p class="fs-5 mx-auto header-text">See what those cities have to amaze you</p>
 </div>
-<section class="container d-sm-flex">
-  <div class="row mb-5 mx-sm-auto" >
-<carousel  [itemsPerSlide]="3" [singleSlideOffset]="true" [noWrap]="false">
-  <slide *ngFor="let item of items">
-    <div class="card">
-      <img class="card-img-top" src="{{item.image}}" alt="{{item.title}}">
-      <div class="card-body">
-        <h5 class="card-title">{{item.title}}</h5>
-        <p class="card-text">{{item.description}}</p>
-      </div>
-    </div>
-  </slide>
-</carousel>
-  </div>
-</section>
+
 <!-- card section -->
-<!-- <section class="d-flex my-5 overflow-hidden container-fluid">
+<section class="d-flex my-5 overflow-hidden container-fluid">
 
       <div class="mx-auto d-flex">
-           <app-city-card class="mx-2"></app-city-card>
-            <app-city-card class="mx-2"></app-city-card> 
-            <app-city-card class="mx-2"></app-city-card>      
-            <app-city-card class="mx-2"></app-city-card>      
+           <app-city-card></app-city-card>   
       </div>
     
 </section>
- -->
+
 
 
  <!-- <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
