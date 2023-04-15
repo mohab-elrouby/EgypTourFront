@@ -1,7 +1,10 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, catchError, tap, throwError } from 'rxjs';
+import { IUser } from '../Models/iuser';
+import { LoginRequest } from '../Models/login-request';
+import { LoginResponse } from '../Models/login-response';
 
 
 @Injectable({
@@ -13,9 +16,19 @@ export class SignUpService {
   constructor(private router: Router,
     private http: HttpClient) { }
 
-    registerUser(userDTO: any){
+    registerUser(userDTO: IUser){
       return this.http
         .post(`${this.baseUrl}/Tourist/add`, userDTO)
+        .pipe( 
+        catchError(this.handleError));
+    }
+
+    loginUser(request: LoginRequest):Observable<any>{
+      let params = new HttpParams()
+      .set('username', request.username)
+      .set('password', request.password)
+      return this.http
+        .post(`${this.baseUrl}/Tourist/login`, request)
         .pipe( 
         catchError(this.handleError));
     }
