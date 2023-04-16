@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SignUpService } from '../../Services/sign-up.service';
 import { Router } from '@angular/router';
 import { LoginRequest } from '../../Models/login-request';
+// import jwt_decode from "jwt-decode";
+
 
 @Component({
   selector: 'app-login',
@@ -31,6 +33,7 @@ export class LoginComponent {
     }
     return false;
   }
+
   onSubmit() {
     if (this.CheckInvalidControls()) {
       console.log("not valid");
@@ -53,6 +56,7 @@ export class LoginComponent {
             console.log('User registered successfully!');
             // redirect to login page
             localStorage.setItem("jwt", response.token);
+            localStorage.setItem("loggedUser", response.userDTO);
             this.router.navigate(['/home']);
           }
         },
