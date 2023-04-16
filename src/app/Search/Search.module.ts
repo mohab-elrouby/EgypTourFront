@@ -7,7 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+// import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 const routes:Routes =[
 { path: '', component: SearchComponent  },
 
@@ -20,7 +20,6 @@ const routes:Routes =[
   imports: [
     RouterModule.forChild(routes),
     CommonModule,
-    FormsModule,
     FormsModule,
     ReactiveFormsModule,
   ]

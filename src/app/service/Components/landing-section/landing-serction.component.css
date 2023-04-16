@@ -1,0 +1,28 @@
+section {
+    height: 55vh;
+    background-image: url("../../../../assets/images/pyramids.jpg");
+    background-size: cover;
+    position: relative;
+}
+.content {
+    position: absolute;
+     transform: translate(15%,20%); 
+}
+.header-text{
+    font-size:3rem;
+    font-weight: bold;
+    color: white;
+   
+}
+/* .star {
+    border-radius: 15%;
+    background-color: red !important;
+} */
+
+@media (max-width: 991px) {
+   p {
+    font-size: 1.5rem !important;
+
+   }
+   
+}

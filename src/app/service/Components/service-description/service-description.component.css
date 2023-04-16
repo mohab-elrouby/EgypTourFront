@@ -1,0 +1,15 @@
+.btn-review {
+    background-color: red !important;
+    width: 10rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+@media (max-width: 991px) {
+    article {
+     font-size: 1rem !important;
+ 
+    }
+    .btn-review {
+        margin: 1rem auto;
+    }
+ }
