@@ -12,7 +12,7 @@ import { CommentserviceService } from 'src/app/comment/Services/commentservice.s
 export class PostCardComponent implements OnInit {
 isLiked:boolean = false;
 post:Ipost[]=[];
-
+baseUrl:string = 'http://localhost:29475';
 comments:string[] = [];
 comment = {
   Id: '',
@@ -20,6 +20,7 @@ comment = {
   writerId:'',
   Date: Date.now().toLocaleString(),
   postId:'',
+  
 };
 
 checkLiked():void {
@@ -30,6 +31,10 @@ ngOnInit():void {
   this.postService.getAllPosts().subscribe({
     next: (posts:any[]) => {
       this.post = posts;
+      this.post.forEach((p:Ipost) => {
+        p.pictureIds[0] = this.baseUrl + p.pictureIds;
+        p.writer.profilePictureUrl = this.baseUrl+ p.writer.profilePictureUrl;
+      })
       this.comments = posts[4];
       console.log(this.post);
     },
@@ -40,7 +45,7 @@ ngOnInit():void {
 addCommentToPost():void {
   this.commentService.addComment(this.comment).subscribe({
     next:(comment:any)=> {
-      this.
+      this.comment
     }
   })
 }

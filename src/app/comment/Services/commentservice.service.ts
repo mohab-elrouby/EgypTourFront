@@ -7,7 +7,7 @@ import { IComment } from '../Models/Icomment';
   providedIn: 'root'
 })
 export class CommentserviceService {
-  baseApiUrl :string = 'http://localhost:29475/';
+  baseApiUrl :string = 'http://localhost:29475';
   constructor(private http : HttpClient) {}
 
   // getAllcomment() : Observable<IComment[]>
