@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomePageComponent } from './Components/home-page/home-page.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { DescriptionSectionComponent } from './Components/description-section/description-section.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,9 +20,10 @@ import { DescriptionSectionComponent } from './Components/description-section/de
    DescriptionSectionComponent,
   ],
   imports: [
-    MatCardModule,
+  MatCardModule,
     CarouselModule.forRoot(),
-    BrowserAnimationsModule,  
+    BrowserAnimationsModule,
+    FormsModule  
     // RouterModule.forChild(routes)
   ],
   exports: [

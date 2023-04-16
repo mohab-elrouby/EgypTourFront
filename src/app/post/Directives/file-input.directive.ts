@@ -17,14 +17,13 @@ export class FileInputDirective {
         const fileType = file.type.split('/')[0];
         if (fileType !== 'image') {
           fileInput.value = ''; // Clear the input field if it contains a non-image file
-          this.ngAfterViewInit();
         }
         // this.imgValid.nativeElement.style.display = 'none';
       }
     }
-  ngAfterViewInit() {
-    this.imgValid.nativeElement.style.display = 'block';
-  }
+  // ngAfterViewInit() {
+  //   this.imgValid.nativeElement.style.display = 'block';
+  // }
     // @HostListener('mousedown', ['$event']) onMousedown(event: MouseEvent) {
     //   event.preventDefault();
     //   return false;

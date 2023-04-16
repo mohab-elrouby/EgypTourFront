@@ -832,7 +832,7 @@ button {
 
 .s131 form {
   width: 100%;
-  max-width: 940px;
+  max-width: 850px;
 }
 
 .s131 form .inner-form {
@@ -891,7 +891,7 @@ button {
 }
 
 .s131 form .inner-form .input-field.second-wrap {
-  min-width: 260px;
+  min-width: 200px;
 }
 
 .s131 form .inner-form .input-field.second-wrap .choices__inner {

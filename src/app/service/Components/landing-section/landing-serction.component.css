@@ -6,7 +6,7 @@ section {
 }
 .content {
     position: absolute;
-     transform: translate(15%,80%); 
+     transform: translate(15%,20%); 
 }
 .header-text{
     font-size:3rem;

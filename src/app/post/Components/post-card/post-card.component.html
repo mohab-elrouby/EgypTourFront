@@ -1,41 +1,78 @@
 <div class="container mb-5">
-    <div class="row">
+    <div class="row" *ngFor="let item of post">
        <div class="col-md-8 mx-auto">
           <div class="card mt-5">
-             <!-- Card header -->
              <div class="card-header d-flex  align-items-center">
                 <div class="d-flex align-items-center mt-2 header">
-                   <img src="../../../../assets/images/avatar-male.png" alt="profile picture" class="rounded-circle mr-3" width="50rem;">
-                   <h6 class="fs-6 my-auto ms-2 name">Kareem salah</h6>
+                   <img src={{item.writer.profilePictureUrl}} alt="profile picture" class="rounded-circle mr-3" width="50rem;">
+                   <h6 class="fs-6 my-auto ms-2 name">{{item.writer.fname}} {{item.writer.lname}}</h6>
                 </div>
-                <span class="text-muted">30m ago</span>
+                <span class="text-muted">{{item.datePosted | timeOnly}}</span>
                 <div></div>
              </div>
-             <!-- Card image -->
              <div class="card-img-top">
-                <img src="../../../../assets/images/aswan-card.jpg" alt="post image" class="post-img">
+                <img src={{item.pictureIds[0]}} alt="post image" class="post-img">
              </div>
-             <!-- Card body -->
              <div class="card-body">
                 <div class="d-flex align-items-center" >
                    <div class="d-flex align-items-center heart" (click)="checkLiked()" id="like">
                       <i class="fas fa-heart mr-2 fs-4 " [style]="isLiked?'color:red' :'color:rgb(231, 222, 206)'"></i>
                    </div>
-                   <span class="ms-2 text-muted" >4 Likes</span>
+                   <span class="ms-2 text-muted" >{{item.likersIds.length}} Likes</span>
 
                 </div>
                 <div class="my-3">
-                   <p class="mb-0">Caption text goes here.</p>
+                   <p class="mb-0">{{item.content}}</p>
                 </div>
                 <div>
-                    <input placeholder="Add a comment..."/>
+                    <input placeholder="Add a comment..." name="content" [(ngModel)]="comment.content" (click)="getPostId(item.id)"/>
                     <button class="btn text-primary ms-2">Post</button>
                 </div>
                 <div>
-                   <a href="#" class="text-decoration-none font-weight-bold mr-3">View all 5 comments</a>
+                   <p  class="text-decoration-none font-weight-bold mr-3" *ngFor="let comment of comments ">{{comment}}</p>
                 </div>
              </div>
           </div>
        </div>
     </div>
  </div>
+
+<!-- 
+ <div class="container mb-5">
+   <div class="row">
+      <div class="col-md-8 mx-auto">
+         <div class="card mt-5">
+            <div class="card-header d-flex  align-items-center">
+               <div class="d-flex align-items-center mt-2 header">
+                  <img src="../../../../assets/images/avatar-male.png" alt="profile picture" class="rounded-circle mr-3" width="50rem;">
+                  <h6 class="fs-6 my-auto ms-2 name">mohamed Ali</h6>
+               </div>
+               <span class="text-muted">30 min ago</span>
+               <div></div>
+            </div>
+            <div class="card-img-top">
+               <img src='../../../../assets/images/aswan-card.jpg' alt="post image" class="post-img">
+            </div>
+            <div class="card-body">
+               <div class="d-flex align-items-center" >
+                  <div class="d-flex align-items-center heart" (click)="checkLiked()" id="like">
+                     <i class="fas fa-heart mr-2 fs-4 " [style]="isLiked?'color:red' :'color:rgb(231, 222, 206)'"></i>
+                  </div>
+                  <span class="ms-2 text-muted" >4 Likes</span>
+
+               </div>
+               <div class="my-3">
+                  <p class="mb-0">such a wonderful place ...</p>
+               </div>
+               <div>
+                   <input placeholder="Add a comment..."/>
+                   <button class="btn text-primary ms-2">Post</button>
+               </div>
+               <div>
+                  <a href="#" class="text-decoration-none font-weight-bold mr-3" >see all 5 comments</a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div> -->
