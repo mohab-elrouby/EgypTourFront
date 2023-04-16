@@ -13,6 +13,7 @@ import { IUser } from '../../Models/iuser';
 export class SignUpComponent {
   userForm:FormGroup;
   userDto: IUser = {} as IUser;
+  isPasswordConfirmed: boolean = false;
 
   constructor(private fb:FormBuilder, private signUpService: SignUpService, private router: Router)
   {
@@ -36,8 +37,18 @@ export class SignUpComponent {
     }
     return false;
   }
+
+  public CheckPasswordConfirmed(){
+
+    return this.password?.value == this.confirmpassword?.value;
+
+  }
+
   onSubmit() {
-    if (this.CheckInvalidControls()){
+    console.log(this.password?.value);
+    console.log(this.confirmpassword?.value);
+    if (this.CheckInvalidControls() || !this.CheckPasswordConfirmed()){
+      
       console.log("not valid");
     }
     else{
@@ -68,6 +79,8 @@ export class SignUpComponent {
     }
 
   }
+
+
 
   get Fname(){
     return this.userForm.get('Fname');
