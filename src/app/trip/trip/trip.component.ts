@@ -6,6 +6,12 @@ import { DialogAnimationsExampleDialogComponent } from './DialogAnimationsExampl
 import {take} from 'rxjs/operators';
 import {CdkTextareaAutosize} from '@angular/cdk/text-field';
 import { TripService } from '../Services/trip.service';
+import { ILocation } from '../Models/ILocation';
+import { IOwner } from '../Models/IOwner';
+import { INote } from '../Models/INote';
+import { IActivity } from '../Models/IActivity';
+import { Iactivity } from 'src/app/activity/Models/Iactivity';
+import { IToDoList } from '../Models/IToDoList';
 
 @Component({
   selector: 'app-trip',
@@ -16,7 +22,28 @@ export class TripComponent implements AfterViewInit ,OnInit {
 
   constructor(public dialog: MatDialog,private _ngZone: NgZone ,private tripService: TripService) {}
 
-  trip!:Itrip;
+  trip= {id: 1 ,
+  name:'',
+  start: new Date(),
+  end: new Date(),
+  location:{city :0, country :1} as ILocation,
+  owner:{fname:'',lname:'',profilePicUrl:'',id:1} as IOwner,
+  description:'',
+  viewers:[{fname:'',lname:'',profilePicUrl:'',id:1}] as IOwner[],
+  backgroundImage:'',
+  activities:[{id:1,
+    name:'',
+    description:'',
+    start:Date.now(),
+    end:Date.now(),
+    location:{city :0, country :0} as ILocation,
+    notes:[{content: ''}] as INote[]
+}] as Iactivity[],
+toDOLists:[{id:1,name:''}] as IToDoList[]
+} as Itrip
+;
+
+  showSpinner:boolean=true;
 
   dragDisabled:boolean = true;
   @ViewChild('image') image!: ElementRef;
@@ -40,10 +67,11 @@ export class TripComponent implements AfterViewInit ,OnInit {
   ]
 
   ngOnInit(): void {
-    this.tripService.GetById(5).subscribe(trip =>{
-      this.trip=trip;
-      console.log(this.trip);
-   });
+      this.tripService.GetById(5).subscribe(trip =>{
+        this.trip=trip;
+        this.showSpinner=false;
+        console.log(this.trip);
+     });
   }
 
   ngAfterViewInit() {
