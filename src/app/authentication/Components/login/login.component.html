@@ -5,10 +5,10 @@
           <div class="card-body p-4 p-md-5">
             <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">Login</h3>
 
-            <form class="px-md-2"  [formGroup]="userForm">
+            <form class="px-md-2"  [formGroup]="userForm" (ngSubmit)="onSubmit()">
               <div class="row">
                   <div class="form-outline mb-4 col-md-12">
-                      <label class="form-label" for="form3Example1q">Userame</label>
+                      <label class="form-label" for="username">Userame</label>
                       <input type="text" class="form-control" id="username"
                       placeholder="Enter username"
                       name = 'username'
@@ -20,16 +20,16 @@
                           <span *ngIf="username?.errors?.['required']">
                           please enter your username
                           </span>
-                          <span *ngIf="username?.errors?.['minlength']">
-                          the username must have at least three characters
+                          <span *ngIf="username?.errors?.['pattern']">
+                          username can only have letters and numbers
                           </span>
                       </span>
                   </div>
               </div>
               <div class="row">
                   <div class="form-outline mb-4 col-md-12">
-                      <label class="form-label" for="form3Example1q">Password</label>
-                      <input type="password" class="form-control" id="username"
+                      <label class="form-label" for="password">Password</label>
+                      <input type="password" class="form-control" id="password"
                       placeholder="Enter Password"
                       name = 'Password'
                       formControlName="password"
@@ -46,8 +46,9 @@
                       </span>
                   </div>
               </div>
+              <p>Not a member? <a routerLink = "/user/signup" href="#">Create account</a></p>
+              <button type="submit" class="btn btn-success btn-lg mb-1"  >Login</button>
               
-              <button type="submit" class="btn btn-success btn-lg mb-1">Login</button>
 
             </form>
 

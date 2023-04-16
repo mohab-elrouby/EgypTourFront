@@ -12,44 +12,61 @@ import { IUser } from '../../Models/iuser';
 })
 export class SignUpComponent {
   userForm:FormGroup;
+  userDto: IUser = {} as IUser;
 
   constructor(private fb:FormBuilder, private signUpService: SignUpService, private router: Router)
   {
     this.userForm = this.fb.group ({
-    Fname : ['', [Validators.required, Validators.minLength(3)]],
-    Lname : ['', [Validators.required, Validators.minLength(3)]],
-    username : ['', [Validators.required, Validators.minLength(3)]],
+    Fname : ['', [Validators.required, Validators.minLength(4),Validators.pattern("^[A-Za-z]{3,29}$")]],
+    Lname : ['', [Validators.required, Validators.minLength(4),Validators.pattern("^[A-Za-z]{3,29}$")]],
+    username : ['', [Validators.required, Validators.minLength(4),Validators.pattern("^[A-Za-z][A-Za-z0-9_]{3,29}$")]],
     email : ['',[Validators.required ,Validators.email] ],
     password : ['', [Validators.required, Validators.minLength(8)]],
-    confirmPassword : ['', [Validators.required, Validators.minLength(8)]],
-    city : ['',[Validators.maxLength(30)] ],
-    phone : ['',[Validators.maxLength(11)] ],
+    confirmpassword : ['', [Validators.required, Validators.minLength(8)]]
   })
   }
 
+  public CheckInvalidControls() {
+    const controls = this.userForm.controls;
+    for (const name in controls) {
+        if (controls[name].invalid) {
+            console.log(name)
+            return true;
+        }
+    }
+    return false;
+  }
   onSubmit() {
-    const userDTO = {
-      Fname: this.userForm.get('Fname')?.value,
-      Lname: "mohab",
-      email: "mohab@f.com",
-      UsernameName: "mohab99",
-      password: "mohabbbsada",
+    if (this.CheckInvalidControls()){
+      console.log("not valid");
+    }
+    else{
+      console.log("valid");
+      this.userDto
+      = {
+       FName: this.userForm.get('Fname')?.value,
+       LName: this.userForm.get('Lname')?.value,
+       Email: this.userForm.get('email')?.value,
+       UsernameName: this.userForm.get('username')?.value,
+       Password: this.userForm.get('password')?.value,
+ 
+       ProfilePictureUrl: "",
+       City: "",
+       Phone: ""
+     };
+     console.log(this.userDto);
+     this.signUpService.registerUser(this.userDto).subscribe(
+       response => {
+         console.log('User registered successfully!');
+         // redirect to login page
+         this.router.navigate(['user/login']);
+       },
+       error => {
+         console.error(error);
+       }
+     );
+    }
 
-      ProfilePictureUrl: "",
-      City: "",
-      Phone: ""
-    };
-    console.log(userDTO);
-    this.signUpService.registerUser(userDTO).subscribe(
-      response => {
-        console.log('User registered successfully!');
-        // redirect to login page
-        this.router.navigate(['/login']);
-      },
-      error => {
-        console.error(error);
-      }
-    );
   }
 
   get Fname(){
@@ -72,12 +89,8 @@ export class SignUpComponent {
     return this.userForm.get('password');
   }
 
-  get city(){
-    return this.userForm.get('city');
-  }
-
-  get phone(){
-    return this.userForm.get('phone');
+  get confirmpassword(){
+    return this.userForm.get('confirmpassword');
   }
 
 }

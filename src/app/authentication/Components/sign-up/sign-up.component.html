@@ -8,7 +8,7 @@
               <form class="px-md-2"  [formGroup]="userForm" (ngSubmit)="onSubmit()">
                 <div class="row">
                     <div class="form-outline mb-4 col-md-6">
-                        <label class="form-label" for="form3Example1q">First Name</label>
+                        <label class="form-label" for="Fname">First Name</label>
                         <input type="text" class="form-control" id="Fname"
                         placeholder="Enter Name"
                         name = 'Fname'
@@ -17,16 +17,16 @@
                         && !Fname?.valid }"
                         >
                         <span class ='invalid-feedback'>
-                            <span *ngIf="Fname?.errors?.['required']">
-                            please enter your first name
+                            <span *ngIf="Fname?.errors?.['pattern']">
+                            First name can only have letters and numbers
                             </span>
                             <span *ngIf="Fname?.errors?.['minlength']">
-                            First name not valid
+                            First name too short
                             </span>
                         </span>
                     </div>
                     <div class="form-outline mb-4 col-md-6">
-                        <label class="form-label" for="form3Example1q">Last Name</label>
+                        <label class="form-label" for="Lname">Last Name</label>
                         <input type="text" class="form-control" id="Lname"
                         placeholder="Enter Last Name"
                         name = 'Lname'
@@ -35,18 +35,18 @@
                         && !Lname?.valid }"
                         >
                         <span class ='invalid-feedback'>
-                            <span *ngIf="Lname?.errors?.['required']">
-                            please enter your last name
+                            <span *ngIf="Lname?.errors?.['pattern']">
+                            Laast name can only have letters.
                             </span>
                             <span *ngIf="Lname?.errors?.['minlength']">
-                            Last name not valid
+                            Last name too short
                             </span>
                         </span>
                     </div>
                 </div> 
                 <div class="row">
                     <div class="form-outline mb-4 col-md-6">
-                        <label class="form-label" for="form3Example1q">Userame</label>
+                        <label class="form-label" for="username">Userame</label>
                         <input type="text" class="form-control" id="username"
                         placeholder="Enter username"
                         name = 'username'
@@ -55,16 +55,16 @@
                         && !username?.valid }"
                         >
                         <span class ='invalid-feedback'>
-                            <span *ngIf="username?.errors?.['required']">
-                            please enter your username
-                            </span>
                             <span *ngIf="username?.errors?.['minlength']">
-                            the username must have at least three characters
+                            username too short.
+                            </span>
+                            <span *ngIf="username?.errors?.['pattern']">
+                            Username can only have letters and numbers
                             </span>
                         </span>
                     </div>
                     <div class="form-outline mb-4 col-md-6">
-                        <label class="form-label" for="form3Example1q">Email</label>
+                        <label class="form-label" for="email">Email</label>
                         <input type="text" class="form-control" id="email"
                         placeholder="Enter email"
                         name = 'email'
@@ -85,8 +85,8 @@
 
                 <div class="row">
                     <div class="form-outline mb-4 col-md-6">
-                        <label class="form-label" for="form3Example1q">Password</label>
-                        <input type="password" class="form-control" id="username"
+                        <label class="form-label" for="password">Password</label>
+                        <input type="password" class="form-control" id="password"
                         placeholder="Enter Password"
                         name = 'Password'
                         formControlName="password"
@@ -103,29 +103,27 @@
                         </span>
                     </div>
                     <div class="form-outline mb-4 col-md-6">
-                        <label class="form-label" for="form3Example1q">Confirm Password</label>
-                        <input type="password" class="form-control" id="username"
+                        <label class="form-label" for="confirmPassword">Confirm Password</label>
+                        <input type="password" class="form-control" id="confirmpassword"
                         placeholder="Enter Password"
-                        name = 'Password'
-                        formControlName="password"
+                        name = 'confirmpassword'
+                        formControlName="confirmpassword"
                         [ngClass]="{'is-invalid' : (password?.touched || password?.dirty )
                         && !password?.valid }"
                         >
                         <span class ='invalid-feedback'>
-                            <span *ngIf="password?.errors?.['required']">
+                            <span *ngIf="confirmpassword?.errors?.['required']">
                             please enter a password
                             </span>
-                            <span *ngIf="password?.errors?.['minlength']">
-                            the password must be at least eghit characters
+                            <span *ngIf="confirmpassword?.errors?.['minlength']">
+                            the password must be at least eightt characters
                             </span>
                         </span>
                     </div>
                 </div>
-                
-                <button type="submit" class="btn btn-success btn-lg mb-1" [disabled]="userForm.invalid">Register</button>
-
+                <p>Already a user? <a routerLink = "/user/login" href="#">Login</a></p>
+                <button type="submit" class="btn btn-success btn-lg mb-1">Register</button>
               </form>
-  
             </div>
           </div>
         </div>
