@@ -11,6 +11,7 @@ import { TripScheduleComponent } from './trip/trip-schedule/trip-schedule.compon
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 const routes:Routes=[{path: '', component: TripComponent },
 {path: 'schedule', component: TripScheduleComponent}
 ];
@@ -27,8 +28,9 @@ const routes:Routes=[{path: '', component: TripComponent },
     MatFormFieldModule,
     MatCardModule,
     MatButtonModule,
-    MatIconModule
-  ],
+    MatIconModule,
+    MatProgressSpinnerModule
+    ],
   exports:[
     TripComponent,
     DialogAnimationsExampleDialogComponent,

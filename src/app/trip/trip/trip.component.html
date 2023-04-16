@@ -20,14 +20,15 @@
     <!-- ChangeCover and Position -->
     <div class="col-10">
       <div class="row " id="backgroundimage" style="height: 25%; padding: 0;overflow:hidden;">
-        <img [cdkDragDisabled]="dragDisabled" (cdkDragEnded)="dragEnd($event)" #image clas cdkDrag
-          [src]="trip.backgroundImage" cdkDragLockAxis="y" style="padding: 0%;height: max-content;width: max-content;">
+        <img  [cdkDragDisabled]="dragDisabled" (cdkDragEnded)="dragEnd($event)" #image clas cdkDrag
+          [src]="trip.backgroundImage" alt="'" cdkDragLockAxis="y" style="padding: 0%;height: max-content;width: max-content;">
       </div>
+
       <div class="d-flex flex-row-reverse  position-relative " style="bottom: 40px;">
         <div class="btn-group" role="group" aria-label="Basic example" style="width:20%;margin-right: 7%;">
           <button mat-raised-button (click)="openDialog('0ms', '0ms')"  type="button" class="btn btn-light " data-bs-toggle="modal" data-bs-target="#exampleModal">Change
             Cover</button>
-          <button (click)="ChangePosition()" type="button" class="btn btn-light">Change Position</button>
+          <button mat-raised-button (click)="ChangePosition()" type="button">Change Position</button>
           <button (click)="SavePosition()" [ngClass]="{'hidden':DisableSave}" type="button"
             class="btn btn-light">Save</button>
         </div>

@@ -1,6 +1,7 @@
 import { ILocation } from "./ILocation"
 import { INote } from "./INote"
-export interface Activity{
+
+export interface IActivity{
   id:number,
   name:string,
   description:string,
