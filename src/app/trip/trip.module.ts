@@ -5,33 +5,48 @@ import { TripComponent } from './trip/trip.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import { TripsSidebarComponent } from './trips-sidebar/trips-sidebar.component';
 import { CreateTripComponent } from './create-trip/create-trip.component';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
 import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { PhotoWallComponent } from './photo-wall/photo-wall.component';
-
-const routes:Routes=[{path: '', component: TripComponent  },];
+import { DialogAnimationsExampleDialogComponent } from './trip/DialogAnimationsExampleDialog/DialogAnimationsExampleDialog.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import {TextFieldModule} from '@angular/cdk/text-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { TripScheduleComponent } from './trip/trip-schedule/trip-schedule.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+const routes:Routes=[{path: '', component: TripComponent },
+{path: 'schedule', component: TripScheduleComponent}
+];
 
 
 @NgModule({
-  declarations: [TripComponent, TripsSidebarComponent, CreateTripComponent, PhotoWallComponent],
+  declarations: [TripComponent, TripsSidebarComponent, CreateTripComponent, PhotoWallComponent,DialogAnimationsExampleDialogComponent,TripScheduleComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     DragDropModule,
-    MatDialogModule,
     MatFormFieldModule,
     FormsModule,
     MatDatepickerModule,
     MatIconModule,
     MatButtonModule,
     MatOptionModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDialogModule,
+    TextFieldModule,
+    MatFormFieldModule,
+    MatCardModule,
+    MatButtonModule,
+    MatIconModule
+  ],
+  exports:[
+    TripComponent,
+    DialogAnimationsExampleDialogComponent,
+    TripScheduleComponent
     ]
 })
 export class TripModule {

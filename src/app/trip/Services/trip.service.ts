@@ -6,12 +6,13 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class TripService {
-  baseApiUrl :string = 'http://localhost:29475/';
+  baseApiUrl :string = 'http://localhost:5275/';
   constructor(private http : HttpClient) {}
-  getactivityBytouristId(id:string)
+  GetById(id:number)
   {
-    return this.http.get<Itrip>(this.baseApiUrl + '/api/Trip/' + id);
+    return this.http.get<Itrip>(this.baseApiUrl+`Trip/GetByID/${id}`);
   }
   addtrip(addtrip:Itrip) : Observable<Itrip>
   {

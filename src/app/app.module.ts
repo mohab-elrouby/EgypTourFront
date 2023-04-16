@@ -11,6 +11,7 @@ import { HomeModule } from './home/home.module';
 import { SearchModule } from './Search/Search.module';
 import { CommonModule } from '@angular/common';
 import { SearchComponent } from './Search/Search.component';
+import { TripModule } from './trip/trip.module';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { SearchComponent } from './Search/Search.component';
     HomeModule,
     SearchModule,
     CommonModule,
+    TripModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
