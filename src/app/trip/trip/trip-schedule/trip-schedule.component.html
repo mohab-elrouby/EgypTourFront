@@ -1,0 +1,23 @@
+  <div cdkDropListGroup class="row">
+    <div *ngFor="let item of Data;index as i" class="example-container">
+      <input id="ColumnName" [value]="item.column">
+      <div cdkDropList [cdkDropListData]="item.data" class="example-list" (cdkDropListDropped)="drop($event)">
+        <div class="box" *ngFor="let card of item.data" cdkDrag>
+          <input [readOnly]="readonly" type="text" [value]="card">
+          <button (click)="ToggleReadOnly()" mat-raised-button>
+            <mat-icon *ngIf="readonly">border_color</mat-icon>
+            <div *ngIf="!readonly">ok</div>
+          </button>
+        </div>
+        <div class="new" (click)="Addcard(i)">
+          <div>
+            <mat-icon style="position: relative;top: 7px;">add</mat-icon>
+            <h6 style="display: inline;">new</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button (click)="AddColumn()" id="addColumn" style="margin-top: 10px;width:0" mat-button>
+       <mat-icon style="margin-left: 5px;">add</mat-icon>
+    </button>
+  </div>
