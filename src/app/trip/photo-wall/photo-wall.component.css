@@ -1,0 +1,20 @@
+.photo-wall {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 10px;
+  }
+  
+  .photo {
+    padding-bottom: 100%;
+    position: relative;
+    overflow: hidden;
+    border: 1px red solid;
+    block-size: fit-content;
+  }
+  
+  .photo img {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  

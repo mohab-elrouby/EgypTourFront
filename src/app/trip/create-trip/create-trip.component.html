@@ -1,0 +1,36 @@
+
+<h2 mat-dialog-title style="float: left;">Schedule Trip</h2>
+<button mat-icon-button style="float: right; margin: 5px;" (click)="onClose()">
+  <mat-icon>close</mat-icon>
+</button>
+
+<mat-dialog-content style="clear: both;">
+  <div class="mb-3">
+    <label for="" class="form-label">Trip name</label>
+    <input type="text"
+      class="form-control" name="" id="" aria-describedby="helpId" placeholder="Ex: Family Vacation">
+  </div>
+
+  <div class="mb-3">
+    <label for="" class="form-label">Trip location</label>
+    <input type="text"
+      class="form-control" name="" id="" aria-describedby="helpId" placeholder="Ex: Alexandria">
+  </div>
+
+  <div class="mb-3">
+    <label for="" class="form-label">Start date</label>
+    <input type="date"
+      class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+  </div>
+
+  <div class="mb-3">
+    <label for="" class="form-label">End date</label>
+    <input type="date"
+      class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+  </div>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onClose()">Cancel</button>
+  <button mat-button color="primary" [disabled]="!isValid()">Schedule Trip</button>
+</mat-dialog-actions>

@@ -1,0 +1,13 @@
+<!-- <div class="photo-wall">
+    <div class="photo" *ngFor="let photo of photos">
+      <img [src]="photo" alt="Photo">
+    </div>
+  </div> -->
+
+<!-- Gallery -->
+<div class="row container">
+  <div class="col-lg-4 col-md-12 mb-4 mb-lg-0" *ngFor="let photo of photos">
+    <img img [src]="photo" alt="Photo" class="w-100 shadow-1-strong rounded mb-4"  style="border: 1px red solid;"/>
+  </div>
+</div>
+<!-- Gallery -->

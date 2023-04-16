@@ -1,32 +1,45 @@
 <div class="container-fluid">
   <div class="row">
 
-    <div class="col-2 bg-secondary vh-100 overflow-auto sticky-top">
-      sdasd
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quaerat ullam odio beatae magnam earum esse
-      similique alias eaque dolor? Vel ipsam dignissimos voluptates tenetur quod similique recusandae laboriosam
-      perferendis.
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis fuga nostrum unde cupiditate necessitatibus
-      dolorum, nisi voluptatem dolorem architecto quo ipsa earum repudiandae. Aut odio earum officia error corporis!
-      Numquam?
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe sit cupiditate fuga ratione deleniti, cumque porro
-      vero. Sapiente voluptate totam repellat. Quia tenetur accusantium, vero veritatis magnam maxime tempora dolor.
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut quae amet ipsam unde consequatur cupiditate ullam,
-      dolores aperiam porro voluptates eius laboriosam voluptatem ducimus tempore, sit delectus deserunt accusantium
-      itaque?
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, consectetur sunt ipsa sapiente tempora impedit iusto
-      iure earum veritatis eius hic ea cum illo molestias reprehenderit esse quibusdam maxime! Aut.
-    </div>
-
+    <app-trips-sidebar class="col-2 vh-100 overflow-auto sticky-top" style="padding: 0;">
+    </app-trips-sidebar> 
     <div class="col-10">
-      <div class="row bg-primary" id="backgroundimage" style="height: 30%; padding: 0;overflow:hidden;">
-        <img cdkDrag  [src]="trip.backgroundImage"  style="padding: 0%;height: 1000px;">
+      <div class="row " id="backgroundimage" style="height: 25%; padding: 0;overflow:hidden;">
+        <img  [cdkDragDisabled]="dragDisabled" (cdkDragEnded)="dragEnd($event)" #image clas cdkDrag
+          [src]="trip.backgroundImage" alt="'" cdkDragLockAxis="y" style="padding: 0%;height: max-content;width: max-content;">
       </div>
-      <div class="row position-relative" style="bottom: 40px;width: 15%;">
-        <div class="btn-group" role="group" aria-label="Basic example">
-          <button type="button" class="btn btn-light ">Change Cover</button>
-          <button type="button" class="btn btn-light">Change Position</button>
+
+      <div class="d-flex flex-row-reverse  position-relative " style="bottom: 40px;">
+        <div class="btn-group" role="group" aria-label="Basic example" style="width:20%;margin-right: 7%;">
+          <button mat-raised-button (click)="openDialog('0ms', '0ms')"  type="button" class="btn btn-light " data-bs-toggle="modal" data-bs-target="#exampleModal">Change
+            Cover</button>
+          <button mat-raised-button (click)="ChangePosition()" type="button">Change Position</button>
+          <button (click)="SavePosition()" [ngClass]="{'hidden':DisableSave}" type="button"
+            class="btn btn-light">Save</button>
         </div>
+      </div>
+      <!-- ChangeCover and Position -->
+      <div class="row ">
+        <div class="form-group">
+          <input class="form-control fw-bold transparent-input" type='text' name='name'[value]="trip.name" placeholder="Trip Title..." >
+        </div>
+
+        <textarea id="Description"
+        placeholder="Description..."
+        matInput
+        [value]="trip.description"
+        cdkTextareaAutosize
+        #autosize="cdkTextareaAutosize"
+        cdkAutosizeMinRows="2"
+        cdkAutosizeMaxRows="10"></textarea>
+      </div>
+
+      <h3 style="margin-top: 70px;margin-left: 26%;margin-bottom: 20px;">Schedule</h3>
+      <div class="container w-75">
+        <app-trip-schedule></app-trip-schedule>
+      </div>
+      <div style="margin: auto;">
+        <app-photo-wall [photos]="myPhotos"></app-photo-wall>
       </div>
     </div>
   </div>

@@ -11,6 +11,7 @@ import { FooterComponent } from './Components/footer/footer.component';
 import { SearchModule } from './Search/Search.module';
 import { CommonModule } from '@angular/common';
 import { SearchComponent } from './Search/Search.component';
+import { TripModule } from './trip/trip.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceModule } from './service/service.module';
 import { ServiceComponent } from './service/Components/service/service.component';
@@ -37,6 +38,7 @@ import { PostModule } from './post/post.module';
     PostModule,
     SearchModule,
     CommonModule,
+    TripModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
