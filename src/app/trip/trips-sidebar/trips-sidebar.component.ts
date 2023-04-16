@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateTripComponent } from '../create-trip/create-trip.component';
+import { Router } from '@angular/router';
+import { TripService } from '../Services/trip.service';
 
 @Component({
   selector: 'app-trips-sidebar',
@@ -9,7 +11,9 @@ import { CreateTripComponent } from '../create-trip/create-trip.component';
 })
 export class TripsSidebarComponent {
 
-  constructor(private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog, private tripService: TripService, private router: Router) { }
+  ngOnInit() {
+  }
 
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
     const dialogRef = this.dialog.open(CreateTripComponent, {

@@ -10,6 +10,10 @@ import { Observable } from 'rxjs';
 export class TripService {
   baseApiUrl :string = 'http://localhost:5275/';
   constructor(private http : HttpClient) {}
+  GetAll(id:number)
+  {
+    return this.http.get<Observable<Itrip>[]>(this.baseApiUrl+`Trip/GetAllTrips/${id}`);
+  }
   GetById(id:number)
   {
     return this.http.get<Itrip>(this.baseApiUrl+`Trip/GetByID/${id}`);
