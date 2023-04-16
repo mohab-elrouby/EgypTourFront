@@ -8,7 +8,9 @@ import { NavbarComponent} from './Components/navbar/navbar.component'
 import { HomePageComponent } from './home/Components/home-page/home-page.component';
 import { HomeModule } from './home/home.module';
 import { FooterComponent } from './Components/footer/footer.component';
-
+import { SearchModule } from './Search/Search.module';
+import { CommonModule } from '@angular/common';
+import { SearchComponent } from './Search/Search.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceModule } from './service/service.module';
 import { ServiceComponent } from './service/Components/service/service.component';
@@ -32,7 +34,9 @@ import { PostModule } from './post/post.module';
     BrowserAnimationsModule,
     HomeModule,
     ServiceModule,
-    PostModule
+    PostModule,
+    SearchModule,
+    CommonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

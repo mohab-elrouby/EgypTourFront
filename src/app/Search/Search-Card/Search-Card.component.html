@@ -1,0 +1,98 @@
+<div class="row mt-5" [ngClass]="{hoverin : mousein , hoverout: mouseout}" (mouseenter)="MouseIn()" (mouseleave)="MouseOut()">
+  <div class="col-3 p-3">
+    <div id={{carousalId}} class="carousel slide">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="https://mediencolleg-rostock.de/schueler/top_100/k_schmiady/bilder/crime/pulpfiction3.jpg"
+            class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="https://m.media-amazon.com/images/I/61jCCwfO6HL._AC_SY879_.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="https://m.media-amazon.com/images/I/61mVAe9vAtL._AC_SY879_.jpg" class="d-block w-100" alt="...">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" [attr.data-bs-target] = "hashcarousalId" data-bs-slide="prev" >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" [attr.data-bs-target] ="hashcarousalId" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+  <div class="col-7">
+    <div class="p-3">
+      <a href="#" style="font-weight: bold;">Service Name</a>
+      <br><br>
+      <div class="Back" style="position: absolute;">
+        <div style="width: 300px;">
+          <span class='fa-stack fa'>
+            <i class='fas fa-square fa-stack-2x' style="color:#F4EFFA"></i>
+            <i class='fas fa-star fa-stack-1x' style="color:white"></i>
+          </span>
+          <span class='fa-stack fa'>
+            <i class='fas fa-square fa-stack-2x' style="color:#F4EFFA"></i>
+            <i class='fas fa-star fa-stack-1x' style="color:white"></i>
+          </span>
+          <span class='fa-stack fa'>
+            <i class='fas fa-square fa-stack-2x' style="color:#F4EFFA"></i>
+            <i class='fas fa-star fa-stack-1x' style="color:white"></i>
+          </span>
+          <span class='fa-stack fa'>
+            <i class='fas fa-square fa-stack-2x' style="color:#F4EFFA"></i>
+            <i class='fas fa-star fa-stack-1x' style="color:white"></i>
+          </span>
+          <span class='fa-stack fa'>
+            <i class='fas fa-square fa-stack-2x' style="color:#F4EFFA"></i>
+            <i class='fas fa-star fa-stack-1x' style="color:white"></i>
+          </span>
+          <span class='fa-stack fa'>
+            <i class='fas fa-square fa-stack-2x' style="color:#F4EFFA"></i>
+            <i class='fas fa-star fa-stack-1x' style="color:white"></i>
+          </span>
+        </div>
+      </div>
+      <div class="crop" [style.width.px]="cropWidth" style="position: absolute;">
+        <div style="width: 300px;">
+          <span class='fa-stack fa'>
+            <i class='fas fa-square fa-stack-2x' style="color:#ff1600"></i>
+            <i class='fas fa-star fa-stack-1x' style="color:white"></i>
+          </span>
+          <span class='fa-stack fa'>
+            <i class='fas fa-square fa-stack-2x' style="color:#ff1600"></i>
+            <i class='fas fa-star fa-stack-1x' style="color:white"></i>
+          </span>
+          <span class='fa-stack fa'>
+            <i class='fas fa-square fa-stack-2x' style="color:#ff1600"></i>
+            <i class='fas fa-star fa-stack-1x' style="color:white"></i>
+          </span>
+          <span class='fa-stack fa'>
+            <i class='fas fa-square fa-stack-2x' style="color:#ff1600"></i>
+            <i class='fas fa-star fa-stack-1x' style="color:white"></i>
+          </span>
+          <span class='fa-stack fa'>
+            <i class='fas fa-square fa-stack-2x' style="color:#ff1600"></i>
+            <i class='fas fa-star fa-stack-1x' style="color:white"></i>
+          </span>
+          <span class='fa-stack fa'>
+            <i class='fas fa-square fa-stack-2x' style="color:#ff1600"></i>
+            <i class='fas fa-star fa-stack-1x' style="color:white"></i>
+          </span>
+        </div>
+      </div>
+      <div class="mt-5">
+        <span class="bg-success font text-white p-1" style="border-radius: 2px;">open now</span>
+        <span> closes 9:00 pm</span>
+      </div>
+      <br>
+      <i class="far fa-comment" style="color: #000000;"></i>
+      Excellent options at some pretty darn affordable prices, considering the quality of the food. I recently went with
+      friends ...
+    </div>
+
+  </div>
+
+</div>
