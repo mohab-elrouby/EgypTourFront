@@ -7,7 +7,7 @@
           <div class="input-field second-wrap ms-2">
             <div class="input-select">
               <select data-trigger="" name="choices-single-defaul" class="choosee form-select shadow" name="selectedCity" [(ngModel)]="selectedCity">
-                <!-- <option selected disabled class="first">choose a city</option> -->
+                <option selected disabled class="first">choose a city</option>
                 <option *ngFor="let cityName of cityNames" [value]="cityNames">{{cityName}}</option>
               </select>
             </div>

@@ -56,8 +56,9 @@ export class LoginComponent {
             console.log('User registered successfully!');
             // redirect to login page
             localStorage.setItem("jwt", response.token);
-            localStorage.setItem("loggedUser", response.userDTO);
+            localStorage.setItem("loggedUser", JSON.stringify(response.userDTO));
             this.router.navigate(['/home']);
+            localStorage.getItem("loggedUser")
           }
         },
         error => {
@@ -74,5 +75,4 @@ export class LoginComponent {
   get password() {
     return this.userForm.get('password');
   }
-
 }

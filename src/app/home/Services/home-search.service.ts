@@ -13,6 +13,6 @@ export class HomeSearchService {
   baseApiUrl:string="http://localhost:5275";
   
   getAllServices(searchInput:string,city:number,skip:number,take:number):Observable<IResponse> {
-    return this.httpClient.get<IResponse>(this.baseApiUrl+`Service/Search/${city}/?skip=${skip}&take=${take}`);
+    return this.httpClient.get<IResponse>(this.baseApiUrl+`/Service/Search`);
   }
   }
