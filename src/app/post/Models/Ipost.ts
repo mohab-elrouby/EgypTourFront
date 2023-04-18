@@ -1,12 +1,14 @@
+import { IComment } from "src/app/comment/Models/Icomment"
 import { ITouristPost } from "./itouristPost"
 
 export interface Ipost
 {
-    id:string,
+    id:number,
     pictureIds: string[],
-    datePosted:string,
-    likersIds: string[],
-    comments: string[],
+    datePosted:Date,
+    likersIds: number[],
+    comments: IComment[],
     content: string
+    isLiked: boolean
     writer:ITouristPost
 }
