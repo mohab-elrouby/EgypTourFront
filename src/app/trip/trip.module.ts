@@ -12,6 +12,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { FormsModule } from '@angular/forms';
+
 const routes:Routes=[{path: '', component: TripComponent },
 {path: 'schedule', component: TripScheduleComponent}
 ];
@@ -29,7 +31,8 @@ const routes:Routes=[{path: '', component: TripComponent },
     MatCardModule,
     MatButtonModule,
     MatIconModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    FormsModule
     ],
   exports:[
     TripComponent,

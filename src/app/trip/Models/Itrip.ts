@@ -1,17 +1,18 @@
-import { Iactivity } from "src/app/activity/Models/Iactivity"
 import { ILocation } from "./ILocation"
 import{IOwner} from "./IOwner"
 import { IToDoList } from "./IToDoList"
+import { IActivity } from "./IActivity"
 export interface Itrip {
   id:number,
   name:string,
   start:Date,
   end:Date,
-  description:string
+  description:string,
+  ypostion:number,
   backgroundImage:string,
   location:ILocation,
   owner:IOwner,
   viewers:IOwner[],
-  activities:Iactivity[],
+  activities:IActivity[],
   toDOLists:IToDoList[]
 }
