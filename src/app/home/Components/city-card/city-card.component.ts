@@ -10,28 +10,33 @@ export class CityCardComponent {
   items = [
     {
       title: 'Aswan',
-      description: 'Aswan is a city',
+      // description: 'Aswan is a city',
       image: '../../../../assets/images/aswan-card.jpg'
     },
     {
-      title: 'Aswan2',
-      description: 'Aswan is a city',
-      image: '../../../../assets/images/aswan-card.jpg'
+      title: 'Luxor',
+      // description: 'Aswan is a city',
+      image: '../../../../assets/images/luxor.jpg'
     },
     {
-      title: 'Aswan3',
-      description: 'Aswan is a city',
-      image: '../../../../assets/images/aswan-card.jpg'
+      title: 'Red Sea',
+      // description: 'Aswan is a city',
+      image: '../../../../assets/images/bahrahmer.jpg'
     },
     {
-      title: 'Aswan4',
-      description: 'Aswan is a city',
-      image: '../../../../assets/images/aswan-card.jpg'
+      title: 'Cairo',
+      // description: 'Aswan is a city',
+      image: '../../../../assets/images/Eygpt.jpg'
     },
     {
-      title: 'Aswan5',
-      description: 'Aswan is a city',
-      image: '../../../../assets/images/aswan-card.jpg'
+      title: 'Alexandria',
+      // description: 'Aswan is a city',
+      image: '../../../../assets/images/alex.jpg'
+    },
+    {
+      title: 'Giza',
+      // description: 'Aswan is a city',
+      image: '../../../../assets/images/Giza2.jpg'
     }
   ];
 }

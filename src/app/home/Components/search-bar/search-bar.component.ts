@@ -13,14 +13,16 @@ export class SearchBarComponent {
     searchInput : string = '';
     selectedCity!:CityName;
   constructor(private searchService: HomeSearchService , private router: Router) {}
-  cityNames = Object.values(CityName);
+  cityNames = Object.values(CityName).splice(0,5);
+  
   getSearchResults(){
-    // if(this.cityNames.includes(this.selectedCity)) {
-    //   return Object.values(CityName[this.selectedCity]);
-    // }
-    // this.searchService. getAllServices(this.searchInput ,parseInt(CityName[this.selectedCity]) ,0,8 ).subscribe({
-    //   //  next:(data)=> this.router.navigate('/search/results')
-    // })
-    // return false;
+    if(this.selectedCity in this.cityNames){
+      return CityName[this.selectedCity];
+
+    }
+    this.searchService. getAllServices(this.searchInput ,1 ,0,8 ).subscribe({
+      //  next:(data)=> this.router.navigate('/search/results')
+    })
+    return false;
   }
 }

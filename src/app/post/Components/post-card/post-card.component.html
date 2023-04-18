@@ -1,5 +1,5 @@
-<div class="container mb-5">
-    <div class="row" *ngFor="let item of post">
+<div class="container mb-5 ">
+    <div class="row"  *ngFor="let item of post let x =index">
        <div class="col-md-8 mx-auto">
           <div class="card mt-5">
              <div class="card-header d-flex  align-items-center">
@@ -15,8 +15,8 @@
              </div>
              <div class="card-body">
                 <div class="d-flex align-items-center" >
-                   <div class="d-flex align-items-center heart" (click)="checkLiked()" id="like">
-                      <i class="fas fa-heart mr-2 fs-4 " [style]="isLiked?'color:red' :'color:rgb(231, 222, 206)'"></i>
+                   <div class="d-flex align-items-center heart" (click)="checkLiked(item.id)" id="like">
+                      <i class="fas fa-heart mr-2 fs-4 "(click)="toggleLike(item)" [style]="item.isLiked?'color:red' :'color:rgb(231, 222, 206)'"></i>
                    </div>
                    <span class="ms-2 text-muted" >{{item.likersIds.length}} Likes</span>
 
@@ -25,12 +25,39 @@
                    <p class="mb-0">{{item.content}}</p>
                 </div>
                 <div>
-                    <input placeholder="Add a comment..." name="content" [(ngModel)]="comment.content" (click)="getPostId(item.id)"/>
-                    <button class="btn text-primary ms-2">Post</button>
+                    <input placeholder="Add a comment..." name="content" [(ngModel)]="comments[x].content" (click)="getPostId(item.id)" #commentInput>
+                    <button class="btn text-primary ms-2" (click)="addCommentToPost(comments[x])">Post</button>
                 </div>
-                <div>
-                   <p  class="text-decoration-none font-weight-bold mr-3" *ngFor="let comment of comments ">{{comment}}</p>
+                <div class="spinner-border d-flex mx-auto my-3" role="status" *ngIf="ProcessingComment">
+                  <span class="visually-hidden ">Loading...</span>
                 </div>
+                <div *ngFor="let comment of item.comments" class=" mb-1">
+                  <div class="d-flex justify-content-between" >
+                     
+                     <p class="comment-name">{{comment.fname}} {{comment.lname}}</p> 
+                   
+                     <span class="text-muted">{{comment.date  | timeOnly}}</span>
+                     <button id="btn-delete"mat-icon-button aria-label="Example icon-button with a menu"
+                     [matMenuTriggerFor]="menu" #menuTrigger><mat-icon>more_vert</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu">
+                     <button mat-menu-item (click)="openDialog(item.id,x,comment.writerId)">Delete</button>
+                     </mat-menu>
+                  </div>
+                  <div class=" d-flex flex-column">
+                     <textarea id="Description"
+                     matInput
+                     [value]="comment.content"
+                     cdkTextareaAutosize
+                     #autosize="cdkTextareaAutosize"
+                     cdkAutosizeMinRows="1"
+                     cdkAutosizeMaxRows="10" class="rounded-4"></textarea>
+
+                   
+                       
+                  </div>
+
+                  </div>
              </div>
           </div>
        </div>

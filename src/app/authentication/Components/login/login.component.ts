@@ -58,6 +58,7 @@ export class LoginComponent {
             localStorage.setItem("jwt", response.token);
             localStorage.setItem("loggedUser", JSON.stringify(response.userDTO));
             this.router.navigate(['/home']);
+            localStorage.getItem("loggedUser")
           }
         },
         error => {
@@ -74,5 +75,4 @@ export class LoginComponent {
   get password() {
     return this.userForm.get('password');
   }
-
 }

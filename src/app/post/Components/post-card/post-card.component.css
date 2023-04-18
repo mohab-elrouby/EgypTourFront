@@ -29,3 +29,33 @@ input:focus {
 i {
     cursor: pointer;
 }
+.comment-name{
+    font-weight: bold;
+    font-size: 0.85rem;
+}
+#Description{
+    border:none !important;
+    background-color:#eceaea !important;
+    padding-top: 2%;
+    padding-bottom: 11%;
+    padding-right: 2%;
+    padding-left: 2%;
+    font-size: large;
+    position: relative;
+    top: -1rem;
+    width: 100%;
+    overflow-y: hidden;
+  
+  }
+  #Description:focus{
+    outline: none;
+  }
+  #btn-delete {
+    margin-bottom: 1rem;
+    background-color: transparent !important;
+    border: none;
+  }
+  #btn-delete:hover {
+    background-color: #faf8f8!important;
+    border-radius: 50%;
+  }

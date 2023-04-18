@@ -1,5 +1,5 @@
 export interface ITouristPost {
-    id: string,
+    id: number,
     fname: string,
     lname: string,
     profilePictureUrl: string,
