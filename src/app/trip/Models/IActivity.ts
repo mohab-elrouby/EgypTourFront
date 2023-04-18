@@ -2,11 +2,12 @@ import { ILocation } from "./ILocation"
 import { INote } from "./INote"
 
 export interface IActivity{
-  id:number,
+  id?:number,
   name:string,
   description:string,
   start:Date,
   end:Date,
-  location:ILocation,
-  notes:INote[]
+  tag:string,
+  location?:ILocation,
+  notes?:INote[]
 }

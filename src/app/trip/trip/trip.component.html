@@ -4,11 +4,15 @@
     <app-trips-sidebar class="col-2 vh-100 overflow-auto sticky-top" style="padding: 0;" (idEmitter)="setId($event)">
     </app-trips-sidebar> 
     <div class="col-10">
-      <div class="row " id="backgroundimage" style="height: 25%; padding: 0;overflow:hidden;">
-        <img  [cdkDragDisabled]="dragDisabled" (cdkDragEnded)="dragEnd($event)" #image clas cdkDrag
-          [src]="trip.backgroundImage" alt="'" cdkDragLockAxis="y" style="padding: 0%;height: max-content;width: max-content;">
+      <div class="row" id="backgroundimage" style="height: 300px; padding: 0;overflow:hidden;">
+        <img [cdkDragFreeDragPosition]="dragPosition" *ngIf="!showSpinner" [cdkDragDisabled]="dragDisabled" (cdkDragEnded)="dragEnd($event)" #image clas cdkDrag
+          [src]="trip.backgroundImage" alt="" cdkDragLockAxis="y" style="padding: 0%;height: max-content;width: max-content;">
       </div>
-
+      <div *ngIf="showSpinner" class="d-flex justify-content-center p-5">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+       </div>
       <div class="d-flex flex-row-reverse  position-relative " style="bottom: 40px;">
         <div class="btn-group" role="group" aria-label="Basic example" style="width:20%;margin-right: 7%;">
           <button mat-raised-button (click)="openDialog('0ms', '0ms')"  type="button" class="btn btn-light " data-bs-toggle="modal" data-bs-target="#exampleModal">Change
@@ -21,22 +25,23 @@
       <!-- ChangeCover and Position -->
       <div class="row ">
         <div class="form-group">
-          <input class="form-control fw-bold transparent-input" type='text' name='name'[value]="trip.name" placeholder="Trip Title..." >
+          <input class="form-control fw-bold transparent-input" type='text' name='name'[(ngModel)]="trip.name" (keydown.enter)="UpdateTrip()" placeholder="Trip Title..." >
         </div>
 
         <textarea id="Description"
         placeholder="Description..."
         matInput
-        [value]="trip.description"
+        [(ngModel)]="trip.description"
         cdkTextareaAutosize
         #autosize="cdkTextareaAutosize"
+        (keydown.enter)="UpdateTrip()"
         cdkAutosizeMinRows="2"
         cdkAutosizeMaxRows="10"></textarea>
       </div>
 
       <h3 style="margin-top: 70px;margin-left: 26%;margin-bottom: 20px;">Schedule</h3>
       <div class="container w-75">
-        <app-trip-schedule></app-trip-schedule>
+        <app-trip-schedule *ngIf="!showSpinner" [tripId]="trip.id" [activities]="trip.activities"></app-trip-schedule>
       </div>
       <div style="margin: auto; " class="container  w-75  overflow-auto" >
         <app-photo-wall [photos]="myPhotos"></app-photo-wall>

@@ -3,14 +3,12 @@ import { Itrip } from '../Models/Itrip';
 import { CdkDragEnd } from '@angular/cdk/drag-drop';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import { DialogAnimationsExampleDialogComponent } from './DialogAnimationsExampleDialog/DialogAnimationsExampleDialog.component';
-import {take} from 'rxjs/operators';
 import {CdkTextareaAutosize} from '@angular/cdk/text-field';
 import { TripService } from '../Services/trip.service';
 import { ILocation } from '../Models/ILocation';
 import { IOwner } from '../Models/IOwner';
 import { INote } from '../Models/INote';
 import { IActivity } from '../Models/IActivity';
-import { Iactivity } from 'src/app/activity/Models/Iactivity';
 import { IToDoList } from '../Models/IToDoList';
 
 @Component({
@@ -19,6 +17,9 @@ import { IToDoList } from '../Models/IToDoList';
   styleUrls: ['./trip.component.css']
 })
 export class TripComponent implements AfterViewInit ,OnInit {
+
+
+  BackGroundImages:string[]=[];
 
   constructor(public dialog: MatDialog,private _ngZone: NgZone ,private tripService: TripService) {}
 
@@ -31,14 +32,15 @@ export class TripComponent implements AfterViewInit ,OnInit {
   description:'',
   viewers:[{fname:'',lname:'',profilePicUrl:'',id:1}] as IOwner[],
   backgroundImage:'',
+  ypostion:0,
   activities:[{id:1,
     name:'',
     description:'',
-    start:Date.now(),
-    end:Date.now(),
+    start:new Date(),
+    end:new Date(),
     location:{city :0, country :0} as ILocation,
     notes:[{content: ''}] as INote[]
-}] as Iactivity[],
+}] as IActivity[],
 toDOLists:[{id:1,name:''}] as IToDoList[]
 } as Itrip
 ;
@@ -67,21 +69,22 @@ toDOLists:[{id:1,name:''}] as IToDoList[]
   ]
 
   ngOnInit(): void {
-    //   this.tripService.GetById(this.tripId).subscribe(trip =>{
-    //     this.trip=trip;
-    //     this.showSpinner=false;
-    //     console.log(this.trip);
-    //  });
+      this.tripService.GetById(5).subscribe(trip =>{
+        this.trip=trip;
+        this.showSpinner=false;
+        console.log(this.trip);
+        if(!(this.trip.ypostion === undefined)){
+          this.dragPosition.y=trip.ypostion;
+        }
+     });
   }
 
   ngAfterViewInit() {
-    // this.image.nativeElement.src="https://www.notion.so/images/page-cover/met_frederic_edwin_church_1871.jpg";
 
-    console.log(this.image.nativeElement.offsetTop)
   }
 
   SavePosition(){
-        console.log(this.dragPosition);
+        this.UpdateTrip();
         this.DisableSave = true;
         this.dragDisabled=true;
   }
@@ -92,13 +95,16 @@ toDOLists:[{id:1,name:''}] as IToDoList[]
   dragEnd($event: CdkDragEnd) {
     this.dragPosition=
    $event.source.getFreeDragPosition();
+   this.trip.ypostion=this.dragPosition.y;
 }
 
 openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
   this.dialog.open(DialogAnimationsExampleDialogComponent, {
-    width: '250px',
+    width: '50%',
+    height:'80%',
     enterAnimationDuration,
     exitAnimationDuration,
+    data:this.trip
   });
 }
 
@@ -122,4 +128,10 @@ setId(id: number) {
  });
 }
 
+UpdateTrip(){
+  console.log(this.trip);
+  this.tripService.updatetrip(this.tripId,this.trip).subscribe(arg=>{
+    console.log(arg);
+  })
+}
 }

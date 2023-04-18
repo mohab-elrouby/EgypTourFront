@@ -1,8 +1,11 @@
-<h1 mat-dialog-title>Delete file</h1>
-<div mat-dialog-content>
-  Would you like to delete cat.jpeg?
+<h1 mat-dialog-title style="font-size:x-large;">Select a Picture</h1>
+<div mat-dialog-content >
+  <div class="row">
+    <div *ngFor="let item of images;index as i" class="col-3">
+      <img (click)="UpdateBackGroundImage(i)" class="BackImage d-block my-3 w-100" [src]="item" alt="">
+    </div>
+  </div>
 </div>
-<div mat-dialog-actions>
-  <button class="btn btn-secondary" mat-button mat-dialog-close>No</button>
+<div style="position: sticky;" mat-dialog-actions class="d-flex justify-content-center">
   <button class="btn btn-primary" mat-button mat-dialog-close cdkFocusInitial>Ok</button>
 </div>

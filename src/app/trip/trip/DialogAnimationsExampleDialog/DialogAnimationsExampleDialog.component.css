@@ -1,0 +1,6 @@
+.BackImage{
+  border-radius:10%  !important;
+  cursor: pointer;
+  height: 150px;
+  object-fit:cover !important;
+}
