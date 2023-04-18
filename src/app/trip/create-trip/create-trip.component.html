@@ -5,32 +5,66 @@
 </button>
 
 <mat-dialog-content style="clear: both;">
-  <div class="mb-3">
-    <label for="" class="form-label">Trip name</label>
-    <input type="text"
-      class="form-control" name="" id="" aria-describedby="helpId" placeholder="Ex: Family Vacation">
-  </div>
-
-  <div class="mb-3">
-    <label for="" class="form-label">Trip location</label>
-    <input type="text"
-      class="form-control" name="" id="" aria-describedby="helpId" placeholder="Ex: Alexandria">
-  </div>
-
-  <div class="mb-3">
-    <label for="" class="form-label">Start date</label>
-    <input type="date"
-      class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
-  </div>
-
-  <div class="mb-3">
-    <label for="" class="form-label">End date</label>
-    <input type="date"
-      class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
-  </div>
+  <form [formGroup]="addTripForm">
+    <div class="mb-3 form-group-lg">
+      <input type="text" formControlName="tripName" [(ngModel)] = "trip.name"
+        class="form-control-plaintext h1" name="name" id="name" aria-describedby="helpId" placeholder="Trip Title..."
+        [ngClass]="{'is-invalid' : (tripName?.touched || tripName?.dirty )
+        && !tripName?.valid }"
+        >
+        <span class ='invalid-feedback'>
+            <span *ngIf="tripName?.errors?.['required']">
+            please enter trip title (3-29 chars)
+            </span>
+            <span *ngIf="tripName?.errors?.['minlength']">
+            too short
+            </span>
+            <span *ngIf="tripName?.errors?.['maxLength']">
+              too long
+            </span>
+        </span>
+    </div>
+  
+  
+    <div class="mb-3 form-group form-group-lg">
+      <label for="" class="form-label">Trip description</label>
+      <input type="text" formControlName="description" [(ngModel)] = "trip.description"
+        class="form-control" name="description" id="" aria-describedby="helpId" placeholder="" >
+    </div>
+  
+    <div class="mb-3">
+      <label for="" class="form-label">Trip location</label>
+      <input type="text" 
+        class="form-control" name="location" id="" aria-describedby="helpId" placeholder="Ex: Alexandria" [(ngModel)] = "trip.location">
+    </div>
+  
+    <div class="row">
+      <div class="mb-3 col-6">
+        <label for="" class="form-label">Start date</label>
+        <input type="date" formControlName="start"[(ngModel)] = "trip.start"
+          class="form-control" name="start" id="" aria-describedby="helpId" placeholder=""  
+          [ngClass]="{'is-invalid' : (start?.touched || start?.dirty )
+          && !start?.valid }"
+          >
+          <span class ='invalid-feedback'>
+              <span *ngIf="start?.errors?.['required']">
+              please select starting date
+              </span>
+          </span>
+      </div>
+    
+      <div class="mb-3 col-6">
+        <label for="" class="form-label">End date</label>
+        <input type="date" formControlName="end"
+          class="form-control" name="endDate" id="" aria-describedby="helpId" placeholder="" [(ngModel)] = "trip.end">
+      </div>
+    </div>
+  </form>
+  
+  
 
 </mat-dialog-content>
 <mat-dialog-actions>
   <button mat-button (click)="onClose()">Cancel</button>
-  <button mat-button color="primary" [disabled]="!isValid()">Schedule Trip</button>
+  <button mat-button color="primary" [disabled]="!isValid()" (click)="onCreate()">Schedule Trip</button>
 </mat-dialog-actions>

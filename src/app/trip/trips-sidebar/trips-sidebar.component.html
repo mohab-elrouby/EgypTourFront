@@ -1,12 +1,12 @@
     <div class="sidebar">
         <h3>My Trips</h3>
         <div class="add-trip">
-            <button class="add-button sticky-top btn btn-dark"  (click)="openDialog('0ms', '0ms')">New Trip</button>
+            <button class="add-button sticky-top btn btn-dark"  (click)="openDialog()">New Trip</button>
         </div>
         <ul>
             <li *ngFor="let trip of trips">
-                <span>{{ trip }}</span>
-                <button class="delete-button" (click)="deleteTrip(trip)">
+                <span (click)="displayTrip(trip.id)">{{ trip.name }}</span>
+                <button class="delete-button" (click)="deleteTrip(trip.id, trip.name)">
                     <i class="fas fa-trash-alt"></i>
                 </button>
             </li>

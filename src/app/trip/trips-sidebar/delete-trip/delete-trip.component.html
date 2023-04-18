@@ -1,0 +1,11 @@
+
+<mat-dialog-content>
+    <p class="h3">{{data.name}} will be deleted</p>
+    <p class="h5">confirm?</p>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-button matDialogClose>Cancle</button>
+    <button mat-button (click)="deleteTrip()">confirm delete</button>
+</mat-dialog-actions>
+

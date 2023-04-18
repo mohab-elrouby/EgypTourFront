@@ -56,7 +56,7 @@ export class LoginComponent {
             console.log('User registered successfully!');
             // redirect to login page
             localStorage.setItem("jwt", response.token);
-            localStorage.setItem("loggedUser", response.userDTO);
+            localStorage.setItem("loggedUser", JSON.stringify(response.userDTO));
             this.router.navigate(['/home']);
           }
         },

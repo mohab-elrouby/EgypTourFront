@@ -10,6 +10,7 @@ export interface Itrip {
   description:string
   backgroundImage:string,
   location:ILocation,
+  ownerId:number,
   owner:IOwner,
   viewers:IOwner[],
   activities:Iactivity[],

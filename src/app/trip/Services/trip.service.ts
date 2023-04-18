@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Itrip } from '../Models/Itrip';
 import { Observable } from 'rxjs';
@@ -20,7 +20,7 @@ export class TripService {
   }
   addtrip(addtrip:Itrip) : Observable<Itrip>
   {
-    return this.http.post<Itrip>(this.baseApiUrl + '/api/Trip',addtrip);
+    return this.http.post<Itrip>(this.baseApiUrl + 'Trip/Add',addtrip);
   }
   updatetrip(id:string, tripUpdate:Itrip): Observable<Itrip>
   {
@@ -29,7 +29,7 @@ export class TripService {
 
   deletetrip(id:string): Observable<Itrip>
   {
-    return this.http.delete<Itrip>(this.baseApiUrl +'/api/Trip/' + id);
+    return this.http.delete<Itrip>(this.baseApiUrl +`Trip/Delete/${id}`);
   }
 }
 

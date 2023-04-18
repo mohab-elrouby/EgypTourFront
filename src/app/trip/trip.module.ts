@@ -5,7 +5,7 @@ import { TripComponent } from './trip/trip.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import { TripsSidebarComponent } from './trips-sidebar/trips-sidebar.component';
 import { CreateTripComponent } from './create-trip/create-trip.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
@@ -19,13 +19,14 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { DeleteTripComponent } from './trips-sidebar/delete-trip/delete-trip.component';
 const routes:Routes=[{path: '', component: TripComponent },
 {path: 'schedule', component: TripScheduleComponent}
 ];
 
 
 @NgModule({
-  declarations: [TripComponent, TripsSidebarComponent, CreateTripComponent, PhotoWallComponent,DialogAnimationsExampleDialogComponent,TripScheduleComponent],
+  declarations: [TripComponent, TripsSidebarComponent, CreateTripComponent, PhotoWallComponent,DialogAnimationsExampleDialogComponent,TripScheduleComponent, DeleteTripComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
@@ -43,7 +44,8 @@ const routes:Routes=[{path: '', component: TripComponent },
     MatCardModule,
     MatButtonModule,
     MatIconModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    ReactiveFormsModule
     ],
   exports:[
     TripComponent,

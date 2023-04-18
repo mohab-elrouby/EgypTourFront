@@ -37,13 +37,13 @@ ngOnInit():void {
   })
 }
 
-addCommentToPost():void {
-  this.commentService.addComment(this.comment).subscribe({
-    next:(comment:any)=> {
-      this.
-    }
-  })
-}
+// addCommentToPost():void {
+//   this.commentService.addComment(this.comment).subscribe({
+//     next:(comment:any)=> {
+//       this.
+//     }
+//   })
+// }
 
 getPostId(id:string){
 this.comment.postId = id;
