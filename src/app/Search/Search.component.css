@@ -41,3 +41,6 @@ input:focus:not([readonly]) {
     background-color: #e90c0c !Important;
     border: solid 1px #e90c0c !Important;
 }
+app-Search-Card:hover{
+  cursor: pointer;
+}

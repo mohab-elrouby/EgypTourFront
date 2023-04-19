@@ -2,15 +2,12 @@
   <div class="col-3 p-3">
     <div id={{carousalId}} class="carousel slide">
       <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="https://mediencolleg-rostock.de/schueler/top_100/k_schmiady/bilder/crime/pulpfiction3.jpg"
-            class="d-block w-100" alt="...">
+        <div *ngFor="let item of searchService.images;index as i " class="carousel-item active">
+          <img  [src]="baseUrl+searchService.images[i].url"
+            class="d-block w-100">
         </div>
-        <div class="carousel-item">
-          <img src="https://m.media-amazon.com/images/I/61jCCwfO6HL._AC_SY879_.jpg" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="https://m.media-amazon.com/images/I/61mVAe9vAtL._AC_SY879_.jpg" class="d-block w-100" alt="...">
+        <div *ngIf="searchService.images.length==0" class="carousel-item active">
+          <img  src="https://img.freepik.com/free-vector/flat-design-world-tourism-day-style_23-2148639397.jpg?3&w=740&t=st=1681851407~exp=1681852007~hmac=e8698a6083ab04c507706da6edf1d71957b679f8af50aac350c6df30cd8c4ab4" class="d-block w-100">
         </div>
       </div>
       <button class="carousel-control-prev" type="button" [attr.data-bs-target] = "hashcarousalId" data-bs-slide="prev" >
@@ -25,7 +22,7 @@
   </div>
   <div class="col-7">
     <div class="p-3">
-      <a href="#" style="font-weight: bold;">Service Name</a>
+      <a href="#" style="font-weight: bold;">{{searchService.name}}</a>
       <br><br>
       <div class="Back" style="position: absolute;">
         <div style="width: 300px;">
@@ -84,13 +81,15 @@
         </div>
       </div>
       <div class="mt-5">
-        <span class="bg-success font text-white p-1" style="border-radius: 2px;">open now</span>
-        <span> closes 9:00 pm</span>
+        <span *ngIf="isOpen" class="bg-success font text-white p-1" style="border-radius: 2px;">open now</span>
+        <span *ngIf="!isOpen" class="bg-danger font text-white p-1" style="border-radius: 2px;">Closed</span>
+        <span *ngIf="isOpen" style="margin-left: 10%;"> closes &nbsp;{{searchService.workingHoursEnd | timeOnly }}  </span>
+        <span *ngIf="!isOpen" style="margin-left: 10%;"> Opens &nbsp;{{searchService.workingHoursStart | timeOnly }}  </span>
       </div>
       <br>
       <i class="far fa-comment" style="color: #000000;"></i>
-      Excellent options at some pretty darn affordable prices, considering the quality of the food. I recently went with
-      friends ...
+      {{searchService.firstReview|slice:0:100}} <br>
+      {{searchService.firstReview|slice:100:160}}...
     </div>
 
   </div>

@@ -1,7 +1,8 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Itrip } from '../Models/Itrip';
-import { Observable } from 'rxjs';
+import { Observable, catchError, throwError } from 'rxjs';
+import { IActivity } from '../Models/IActivity';
 
 @Injectable({
   providedIn: 'root'
@@ -22,15 +23,38 @@ export class TripService {
   {
     return this.http.post<Itrip>(this.baseApiUrl + 'Trip/Add',addtrip);
   }
-  updatetrip(id:string, tripUpdate:Itrip): Observable<Itrip>
+
+  updatetrip(id:number, tripUpdate:Itrip): Observable<string>
   {
-    return this.http.put<Itrip>(this.baseApiUrl + '/api/Trip/'+ id, tripUpdate);
+    return this.http.put<string>(this.baseApiUrl + `Trip/Update/?id=${id}`,tripUpdate).pipe(
+      catchError(error=>{
+        return throwError(error.status);
+      })
+    );
   }
 
   deletetrip(id:string): Observable<Itrip>
   {
     return this.http.delete<Itrip>(this.baseApiUrl +`Trip/Delete/${id}`);
   }
+
+  AddActivity(tripId:number,activity:IActivity):Observable<string>{
+     return this.http.post<string>(this.baseApiUrl+`Trip/AddActivity/?tripId=${tripId}`,activity).pipe(
+      catchError(error=>{
+      return throwError(error.status);
+    })
+    );
+  }
+
+  UpdateActiviy(id:number,activity:IActivity):Observable<string>{
+    return this.http.put<string>(this.baseApiUrl+`Activity/UpdateActivity/${id}`,activity).pipe(
+     catchError(error=>{
+     return throwError(error.status);
+   })
+   );
+ }
+
+
 }
 
 

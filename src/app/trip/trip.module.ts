@@ -20,6 +20,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { DeleteTripComponent } from './trips-sidebar/delete-trip/delete-trip.component';
+
+
 const routes:Routes=[{path: '', component: TripComponent },
 {path: 'schedule', component: TripScheduleComponent}
 ];
@@ -45,7 +47,8 @@ const routes:Routes=[{path: '', component: TripComponent },
     MatButtonModule,
     MatIconModule,
     MatProgressSpinnerModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
     ],
   exports:[
     TripComponent,

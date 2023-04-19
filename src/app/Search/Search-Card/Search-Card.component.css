@@ -46,6 +46,8 @@ animation-fill-mode:forwards;
 
 }
 
+
+
 @keyframes inCardHover {
    0%{transform: scale(1);
   }

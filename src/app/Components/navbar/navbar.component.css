@@ -31,3 +31,10 @@
 .mobile li:hover{
     background-color: #dbd8d8;
 }
+
+.hide {
+    display:none;
+}
+.show{
+    display:block;
+}
