@@ -42,6 +42,11 @@ export class PostService {
   addImageTOPost(file:File , postId:number):Observable<IAddImage> {
     return this.http.post<IAddImage>(this.baseApiUrl + `/Post/${postId}/AddImage`, file);
   }
+
+  getByUserId(id:string)
+  {
+    return this.http.get<Ipost[]>(this.baseApiUrl + '/Post/users/' + id);
+  }
 }
 
 

@@ -52,7 +52,7 @@
       </div>
 
       <div *ngFor="let item of serviceList.services;index as i">
-        <app-Search-Card [searchService]="item" [carousalId]="item.name"></app-Search-Card>
+        <app-Search-Card [searchService]="item" [carousalId]="item.name" (click) = "openServiceDetails(item.id)"></app-Search-Card>
       </div>
 
     </div>

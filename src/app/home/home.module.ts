@@ -10,7 +10,7 @@ import { HomePageComponent } from './Components/home-page/home-page.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { DescriptionSectionComponent } from './Components/description-section/description-section.component';
 import { FormsModule } from '@angular/forms';
-
+import { AppRoutingModule } from '../app-routing.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,8 @@ import { FormsModule } from '@angular/forms';
     CarouselModule.forRoot(),
     BrowserAnimationsModule,
     FormsModule,
-    CommonModule  
+    CommonModule,
+    AppRoutingModule
     // RouterModule.forChild(routes)
   ],
   exports: [

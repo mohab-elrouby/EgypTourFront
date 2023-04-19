@@ -11,7 +11,7 @@ import { PageEvent } from '@angular/material/paginator';
   styleUrls: ['./review-list.component.css']
 })
 export class ReviewListComponent {
-  serviceId : number = 1;
+  @Input()serviceId : number = 1;
   currIndex : number = 0;
   itemsPerPage : number = 3;
   reviews: IserviceReview[] = [];

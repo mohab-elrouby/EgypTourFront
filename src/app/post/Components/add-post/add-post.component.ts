@@ -18,6 +18,8 @@ export class AddPostComponent {
 loggedUserId = JSON.parse(this.loggedUserObj!).id;
 loggedUserFname = JSON.parse(this.loggedUserObj!).fname;
 loggedUserLname = JSON.parse(this.loggedUserObj!).lname;
+file :any = null; // Variable to store file
+
 
   // post:Ipost={
   //   id:0,
@@ -49,8 +51,20 @@ loggedUserLname = JSON.parse(this.loggedUserObj!).lname;
     this.postDTO.content = this.caption;
     this.postService.addPost(this.postDTO).subscribe()
     console.log(this.caption, this.imgUrl)
-    
+    if(this.file != null){
+      let newPostId! : number ;
+      this.postService.getByUserId(this.loggedUserId).subscribe(
+        x => { newPostId == null? x.pop()?.id:null;}
+      )
+      this.postService.addImageTOPost(this.file , newPostId)
+    }
     // this.postService.addImageTOPost(this.imageUrl).subscribe
     
+  }
+  showImg(){
+    console.log(this.imgUrl)
+  }
+  onChange(event:any){
+    this.file = event.target.files[0];
   }
 } 

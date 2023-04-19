@@ -10,8 +10,8 @@ import { CityName } from 'src/app/Search/Models/city-name';
 export class LandingSerctionComponent implements OnInit, OnChanges {
   @Input() serviceName :string = "";
   @Input() ratingValue: number = 1;
-  @Input() WorkingHoursEnd: string = "10:00 AM -12:00 PM";
-  @Input() WorkingHoursStart: string = "10:00 AM -12:00 PM";
+  @Input() WorkingHoursEnd: Date = new Date();
+  @Input() WorkingHoursStart: Date = new Date();
   @Input() Location: ILocation = {} as ILocation;
   @Input() img :string = "";
 
@@ -26,6 +26,7 @@ export class LandingSerctionComponent implements OnInit, OnChanges {
   }
   ngOnChanges(changes: SimpleChanges): void {
     this.Rating();
+    console.log(this.WorkingHoursEnd)
     this.City = CityName[this.Location.cityName];
   }
   ngOnInit(): void {

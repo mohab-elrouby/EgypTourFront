@@ -1,9 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ServiceService } from '../../Services/service.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { IserviceReview } from '../../Models/iservice-review';
 import { IResponse } from '../../Models/iresponse';
 import { ISearchService } from 'src/app/Search/Models/ISearchService';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-servic',
@@ -12,11 +13,13 @@ import { ISearchService } from 'src/app/Search/Models/ISearchService';
 })
 export class ServiceComponent implements OnInit {
   serviceDto : ISearchService = {} as ISearchService;
-  @Input() serviceId : number = 1;
+  serviceId : number = 1;
+  sub!:Subscription;
 
-  constructor(private service:ServiceService, private router:Router){}
+  constructor(private service:ServiceService, private router:Router, private route: ActivatedRoute){}
 
   ngOnInit(): void {
+    this.serviceId = Number(this.route.snapshot.paramMap.get('id'));
     this.service.getService(this.serviceId).subscribe( 
       result => {
         console.log(result.name)

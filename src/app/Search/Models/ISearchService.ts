@@ -9,8 +9,6 @@ export interface ISearchService {
   avgRating:number;
   profileImage:string;
   firstReview:string;
-  WorkingHoursEnd: string;
-  WorkingHoursStart: string;
   location:ILocation
   workingHoursEnd:Date;
   workingHoursStart:Date;

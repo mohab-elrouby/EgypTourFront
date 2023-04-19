@@ -14,13 +14,13 @@ const routes: Routes = [
   {path:'activity',loadChildren:()=>import('src/app/activity/activity.module').then((m)=>m.ActivityModule),canActivate: [AuthGuard]},
   {path:'localreview',loadChildren:()=>import('src/app/local-review/local-review.module').then((m)=>m.LocalReviewModule),canActivate: [AuthGuard]},
   {path:'servicereview',loadChildren:()=>import('src/app/service-review/service-review.module').then((m)=>m.ServiceReviewModule),canActivate: [AuthGuard]},
-  {path:'service',component:ServiceComponent},
+  {path:'service/:id',component:ServiceComponent},
   {path:'localperson',loadChildren:()=>import('src/app/local-person/local-person.module').then((m)=>m.LocalPersonModule),canActivate: [AuthGuard]},
   {path:'post',component:PostComponent,canActivate: [AuthGuard]},
   {path:'user',loadChildren:()=>import('src/app/authentication/authentication.module').then((m)=>m.AuthenticationModule)},
   {path:'search',loadChildren:()=>import('src/app/Search/Search.module').then((m)=>m.SearchModule)},
   {path:'trips',loadChildren:()=>import('src/app/trip/trip.module').then((m)=>m.TripModule),canActivate: [AuthGuard]},
-  { path: '**', component: HomePageComponent, canActivate: [RouteGuard] } 
+  {path: '**', component: HomePageComponent, canActivate: [RouteGuard] }
 
 ];
 
