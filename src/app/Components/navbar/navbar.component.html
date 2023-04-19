@@ -21,11 +21,11 @@
         </li>
 
         <li class="nav-item first">
-          <a class="nav-link mx-2 mt-1" href="#">MyTrips</a>
+          <a class="nav-link mx-2 mt-1" routerLink="trips">MyTrips</a>
         </li>
        
           <li class="nav-item ">
-            <a class="nav-link mx-2"routerLink="posts"><i class="fa-solid fa-users-line fs-4 text-primary"></i></a>
+            <a class="nav-link mx-2"routerLink="post"><i class="fa-solid fa-users-line fs-4 text-primary"></i></a>
           </li>
       
           <li class="nav-item">
@@ -36,13 +36,20 @@
           <a class="nav-link " routerLink="service">Servic</a>
         </li>
        
-          <li class="nav-item">
-            <a class="btn btn-login px-3 mx-3" href="#">Login</a>
+          <li class="nav-item login" [ngClass]="{loggedIn: 'hide'}">
+            <a class="btn btn-login px-3 mx-3" routerLink="user/login" >Login</a>
           </li>
-        <li class="nav-item">
-          <a class=" btn btn-primary" href="#">Sign up</a>
+        <li class="nav-item signup">
+          <a class=" btn btn-primary" routerLink="user/signup">Sign up</a>
+        </li>
+        <li class="nav-item d-none"[ngClass]="{loggedIn: 'show'}">
+          <a class=" px-3 mx-3 nav-link text-dark" routerLink="user/login">Hello, {{loggedUserFname}}</a>
+        </li>
+        <li class="nav-item signout">
+          <a class="btn btn-danger px-3 mx-3" routerLink="user/login">Sign out</a>
         </li>
         
+
       </ul>
     </div>
   </div>
@@ -71,11 +78,11 @@
         </li>
       
         <li class="nav-item first">
-          <a class="nav-link" href="#">MyTrips</a>
+          <a class="nav-link" routerLink="trips">MyTrips</a>
         </li>
 
           <li class="nav-item">
-            <a class="nav-link" routerLink="posts">Feed</a>
+            <a class="nav-link" routerLink="post">Feed</a>
           </li>
           
           <li class="nav-item ">
@@ -87,14 +94,17 @@
           <a class="nav-link " routerLink="service">Service</a>
         </li>
        
-          <li class="nav-item ">
-            <a class="nav-link" href="#">Login</a>
+          <li class="nav-item "#login>
+            <a class="nav-link"routerLink="user/login">Login</a>
           </li>
        
-        <li class="nav-item ">
-          <a class="nav-link" href="#">Sign up</a>
+        <li class="nav-item" #signup>
+          <a class="nav-link" routerLink="user/signup">Sign up</a>
         </li>
-      
+
+        <li class="nav-item d-none" #signout>
+          <a class="btn btn-danger px-3 mx-3" routerLink="user/login">Sign out</a>
+        </li>
         
       </ul>
     </div>

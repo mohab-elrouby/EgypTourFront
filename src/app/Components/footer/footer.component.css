@@ -2,3 +2,9 @@ i {
     border-radius: 50%;
     border-color: white;
 }
+
+nav-container{
+    position: sticky;
+    bottom: 0;
+    left: 0;
+}

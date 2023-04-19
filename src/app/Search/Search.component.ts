@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router, RouterLinkActive } from '@angular/router';
 import { SearchServiceService } from './Services/SearchService.service';
 import { ISearchService } from './Models/ISearchService';
@@ -21,8 +21,8 @@ export class SearchComponent implements OnInit {
   thirdPage:number=this.currentPage+2;
 
   serviceList!:IResponse;
-
-
+  @Input()searchString:string='';
+  @Input()city!:Number;
   constructor(private router:Router, private route:ActivatedRoute ,private searchService:SearchServiceService) {
     route.params.subscribe(val => {
      this.pageChange();

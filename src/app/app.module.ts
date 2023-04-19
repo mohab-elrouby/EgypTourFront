@@ -17,6 +17,7 @@ import { ServiceModule } from './service/service.module';
 import { ServiceComponent } from './service/Components/service/service.component';
 import { PostComponent } from './post/Components/post/post.component';
 import { PostModule } from './post/post.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +25,8 @@ import { PostModule } from './post/post.module';
     HomePageComponent,
     FooterComponent,
     ServiceComponent,
-    PostComponent
+    PostComponent,
+   
 
   ],
   imports: [

@@ -23,7 +23,8 @@ import { FormsModule } from '@angular/forms';
   MatCardModule,
     CarouselModule.forRoot(),
     BrowserAnimationsModule,
-    FormsModule  
+    FormsModule,
+    CommonModule  
     // RouterModule.forChild(routes)
   ],
   exports: [
