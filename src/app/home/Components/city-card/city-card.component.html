@@ -16,12 +16,12 @@
 <section class="container d-sm-flex">
   <div class="row mb-5 mx-sm-auto" >
 <carousel  [itemsPerSlide]="3" [singleSlideOffset]="true" [noWrap]="false"  >
-  <slide *ngFor="let item of items">
-    <div class="card mx-3 mb-3">
+  <slide *ngFor="let item of items;index as i">
+
+    <div (click)="search(i)" class="card mx-3 mb-3">
       <img class="card-img-top" src="{{item.image}}" alt="{{item.title}}" height="250rem;">
       <div class="card-body d-flex flex-column">
         <h4 class="card-title mx-auto">{{item.title}}</h4>
-        <!-- <p class="card-text mx-auto">{{item.description}}</p> -->
       </div>
     </div>
   </slide>

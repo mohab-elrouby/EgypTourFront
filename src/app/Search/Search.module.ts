@@ -9,14 +9,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { PostModule } from '../post/post.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { SearchBarComponent } from '../home/Components/search-bar/search-bar.component';
-// import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {MatPaginatorIntl, MatPaginatorModule} from '@angular/material/paginator';
 
 
 const routes:Routes =[
-{ path: '', component: SearchComponent  },
+{ path:'', component: SearchComponent  },
 
 ]
 @NgModule({

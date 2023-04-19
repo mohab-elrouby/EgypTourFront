@@ -6,6 +6,8 @@ import { IResponse } from './Models/IResponse';
 import { CityName } from './Models/city-name';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { PageEvent } from '@angular/material/paginator';
+import { IImage } from './Models/IImage';
+import { ILocation } from "src/app/trip/Models/ILocation";
 
 @Component({
   selector: 'app-Search',
@@ -30,16 +32,29 @@ export class SearchComponent implements OnInit {
   @Input()city:number=0;
   @Input()searchString:string='';
 
-  serviceList!:IResponse;
-
+  serviceList:IResponse={
+    count:0 ,
+    services:[{
+      id:0 ,
+      name:'',
+      description:'',
+      images: [{url:''}] as IImage[],
+      avgRating:0,
+      profileImage:'',
+      firstReview:'',
+      workingHoursEnd: new Date(),
+      workingHoursStart: new Date(),
+      location:{  city:0,
+        country:0,
+        cityName:0} as ILocation,
+} ] as ISearchService[]
+  }as IResponse;
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action);
   }
 
   constructor(private router:Router, private route:ActivatedRoute ,private searchService:SearchServiceService ,private _snackBar: MatSnackBar) {
 
-    route.params.subscribe(val => {
-    });
    }
 
   cities : CityName[] =[CityName.Cairo,CityName.Alexandria,CityName.Aswan,CityName.Giza,CityName.Luxor,CityName.RedSea]
@@ -52,25 +67,24 @@ export class SearchComponent implements OnInit {
       this.serviceList = services;
       this.showSpinner=false;
       this.numberOfPages = services.count;
-
-    const page= Number(this.route.snapshot.paramMap.get('page'));
-    if(page<=this.numberOfPages){
-      this.currentPage =page;
-      this.skip=page*8-8;
-    }
   });
   }
 
-
-
-
   ngOnInit():void {
-    if(this.searchString==''){
-      this.GetAllServices();
-    }
-    else{
 
-    }
+    this.route.queryParams.subscribe(
+      params=>{
+        if(params['q']!=undefined&&params['city']!=undefined){
+          this.searchString=params['q'];
+          this.city=Number(params['city']);
+          this.search();
+        }
+        else{
+           this.GetAllServices();
+        }
+      }
+    )
+
   }
 
 
@@ -85,6 +99,7 @@ export class SearchComponent implements OnInit {
     if(this.searchString==''){
       this.searchService.getAllServices(this.city,this.skip,this.take).subscribe(services=>{
         this.serviceList.services=services.services;
+        this.numberOfPages=services.count;
         this.showSpinner=false;
       });
     }
@@ -103,7 +118,7 @@ export class SearchComponent implements OnInit {
       console.log(this.searchString);
       this.searchService.search(this.city,this.skip,this.take,this.searchString,0,).subscribe(i=>{
         this.serviceList.services= i.services;
-        console.log(i.services);
+        console.log(this.serviceList);
         this.numberOfPages=i.count;
         this.showSpinner=false;
       })

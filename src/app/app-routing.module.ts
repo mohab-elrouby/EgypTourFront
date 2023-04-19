@@ -18,9 +18,9 @@ const routes: Routes = [
   {path:'localperson',loadChildren:()=>import('src/app/local-person/local-person.module').then((m)=>m.LocalPersonModule),canActivate: [AuthGuard]},
   {path:'post',component:PostComponent,canActivate: [AuthGuard]},
   {path:'user',loadChildren:()=>import('src/app/authentication/authentication.module').then((m)=>m.AuthenticationModule)},
-  {path:'search/:page',loadChildren:()=>import('src/app/Search/Search.module').then((m)=>m.SearchModule)},
+  {path:'search',loadChildren:()=>import('src/app/Search/Search.module').then((m)=>m.SearchModule)},
   {path:'trips',loadChildren:()=>import('src/app/trip/trip.module').then((m)=>m.TripModule),canActivate: [AuthGuard]},
-  { path: '**', component: HomePageComponent, canActivate: [RouteGuard] } 
+  {path: '**', component: HomePageComponent, canActivate: [RouteGuard] }
 
 ];
 
