@@ -14,7 +14,6 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {MatPaginatorIntl, MatPaginatorModule} from '@angular/material/paginator';
 
-
 const routes:Routes =[
 { path: '', component: SearchComponent  },
 
@@ -35,7 +34,8 @@ const routes:Routes =[
     MatSelectModule,
     MatButtonModule,
     MatSnackBarModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    RouterModule
   ]
   ,
   exports:[

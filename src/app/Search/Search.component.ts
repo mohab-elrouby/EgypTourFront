@@ -6,7 +6,6 @@ import { IResponse } from './Models/IResponse';
 import { CityName } from './Models/city-name';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { PageEvent } from '@angular/material/paginator';
-
 @Component({
   selector: 'app-Search',
   templateUrl: './Search.component.html',
@@ -65,6 +64,11 @@ export class SearchComponent implements OnInit {
 
 
   ngOnInit():void {
+    this.route.params.subscribe(
+      params=>{
+        console.log(params);
+      }
+    ) 
     if(this.searchString==''){
       this.GetAllServices();
     }

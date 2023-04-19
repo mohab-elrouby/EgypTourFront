@@ -4,14 +4,7 @@
           <div class="input-field first-wrap" >
             <input class="form-control shadow " id="search" type="text" placeholder="Search for a service" name="searchInput" [(ngModel)]="searchInput"/>
           </div>
-          <div class="input-field second-wrap ms-2">
-            <div class="input-select">
-              <select data-trigger="" name="choices-single-defaul" class="choosee form-select shadow" name="selectedCity" [(ngModel)]="selectedCity">
-                <option selected disabled class="first">choose a city</option>
-                <option *ngFor="let cityName of cityNames" [value]="cityName">{{cityName}}</option>
-              </select>
-            </div>
-          </div>
+        
           <div class="input-field third-wrap">
             <button class="btn btn-search shadow" type="button" (click)="getSearchResults()">SEARCH</button>
           </div>

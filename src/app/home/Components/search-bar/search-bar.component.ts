@@ -20,6 +20,7 @@ export class SearchBarComponent {
   getSearchResults(){
     if(this.cityNames.includes(this.selectedCity)) {
       // this.searchService. getAllServices(this.searchInput ,Number(Object.values(CityName).indexOf(this.selectedCity)) ,0,8 ).subscribe({})
+      console.log(Number(Object.values(CityName).indexOf(this.selectedCity)))
     }
   }
 }

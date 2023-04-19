@@ -11,15 +11,17 @@ export class NavbarComponent implements OnInit{
 
   loggedUserObj = localStorage.getItem('loggedUser');
   loggedUserFname!:string;
+  loggedUserlname!:string;
   loggedIn!:boolean ;
 
   ngOnInit(): void {
     if(!this.loggedUserObj || this.loggedUserObj==null){
-      this.loggedUserFname = JSON.parse(this.loggedUserObj!)['fname'];
       this.loggedIn = false;
       console.log(this.loggedUserFname);
   }
   else{
+    this.loggedUserFname = JSON.parse(this.loggedUserObj!).fname;
+    this.loggedUserlname = JSON.parse(this.loggedUserObj!).lname;
     this.loggedIn = true;
   }
 }

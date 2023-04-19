@@ -28,24 +28,19 @@
             <a class="nav-link mx-2"routerLink="post"><i class="fa-solid fa-users-line fs-4 text-primary"></i></a>
           </li>
       
-          <li class="nav-item">
-            <a class="nav-link " href="#"><i class="fa-solid fa-bell fs-4 text-primary"></i></a>
-          </li>
             
-          <li class="nav-item login">
+          <li class="nav-item login" [ngClass]="{'hide': loggedIn}">
             <a class="btn btn-login px-3 mx-3" routerLink="user/login" >Login</a>
           </li>
-        <li class="nav-item signup">
+        <li class="nav-item signup" [ngClass]="{'hide': loggedIn}">
           <a class=" btn btn-primary" routerLink="user/signup">Sign up</a>
         </li>
-        <li class="nav-item ">
-          <a class=" px-3 mx-3 nav-link text-dark" routerLink="user/login">Hello,{{loggedUserFname}}</a>
+        <li class="nav-item "[ngClass]="{'hide': !loggedIn}">
+          <a class=" px-3 mx-3 nav-link text-dark">{{loggedUserFname}} {{loggedUserlname}}</a>
         </li>
-        <li class="nav-item signout" >
-          <a class="btn btn-danger px-3 mx-3" routerLink="user/login"(click)="handleSignOut()">Sign out</a>
+        <li class="nav-item signout" [ngClass]="{'hide': !loggedIn}" >
+          <a class="btn btn-danger px-3 mx-3" routerLink="user/login"(click)="handleSignOut()" >Sign out</a>
         </li>
-        
-
       </ul>
     </div>
   </div>
@@ -80,11 +75,6 @@
           <li class="nav-item">
             <a class="nav-link" routerLink="post">Feed</a>
           </li>
-          
-          <li class="nav-item ">
-            <a class="nav-link " href="#">Notification</a>
-          </li>
-        
         
         <li class="nav-item">
           <a class="nav-link " routerLink="service">Service</a>
