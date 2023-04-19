@@ -41,7 +41,7 @@ export class TripsSidebarComponent {
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
       this.getTrips();
-    });    
+    });
   }
   displayTrip(id:number){
     this.idEmitter.emit(id);
@@ -52,11 +52,11 @@ export class TripsSidebarComponent {
     this.tripService.GetAll(1).subscribe({
       next: (trips:any) => {
         this.trips = trips;
-        console.log(this.trips);
+        this.idEmitter.emit(this.trips[0].id);
       },
       error: (err:any) => {
         console.log(err);
       }
-    });    
+    });
   }
 }

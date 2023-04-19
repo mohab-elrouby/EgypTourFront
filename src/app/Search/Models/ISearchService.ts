@@ -8,4 +8,6 @@ export interface ISearchService {
   avgRating:number;
   profileImage:string;
   firstReview:string;
+  workingHoursEnd:Date;
+  workingHoursStart:Date;
 }

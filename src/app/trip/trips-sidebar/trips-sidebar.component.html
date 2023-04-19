@@ -1,14 +1,19 @@
-    <div class="sidebar">
+    <div style="height:100% ;" class="sidebar">
         <h3>My Trips</h3>
         <div class="add-trip">
             <button class="add-button sticky-top btn btn-dark"  (click)="openDialog()">New Trip</button>
         </div>
         <ul>
             <li *ngFor="let trip of trips">
+              <div id="rip-side-container"t class="d-flex justify-content-between w-100">
                 <span (click)="displayTrip(trip.id)">{{ trip.name }}</span>
-                <button class="delete-button" (click)="deleteTrip(trip.id, trip.name)">
-                    <i class="fas fa-trash-alt"></i>
+
+
+
+                <button mat-button style="background-color: transparent;" class="delete-button" (click)="deleteTrip(trip.id, trip.name)">
+                  <mat-icon>delete_outline</mat-icon>
                 </button>
+              </div>
             </li>
         </ul>
     </div>
