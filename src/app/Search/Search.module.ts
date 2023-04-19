@@ -10,6 +10,7 @@ import { PostModule } from '../post/post.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {MatPaginatorIntl, MatPaginatorModule} from '@angular/material/paginator';
 const routes:Routes =[
 { path: '', component: SearchComponent  },
 
@@ -29,7 +30,8 @@ const routes:Routes =[
     MatAutocompleteModule,
     MatSelectModule,
     MatButtonModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatPaginatorModule
   ]
   ,
   exports:[

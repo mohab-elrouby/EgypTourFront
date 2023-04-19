@@ -58,23 +58,10 @@
     </div>
     <div class="row mt-5 mb-5">
        <!-- pagination -->
-       <nav *ngIf="numberOfPages>1" aria-label="Page navigation" class="d-flex justify-content-center">
-        <ul [(ngModel)]="currentPage" class="pagination">
-          <li class="page-item"><a class="page-link"*ngIf="currentPage>1" [routerLink]="['/search',currentPage-1]" >Previous</a></li>
-
-          <li class="page-item" [ngClass]="{'active':currentPage<=numberOfPages-2}"><a class="page-link" [routerLink]="['/search',firstPage]">{{firstPage}}</a></li>
-
-          <li class="page-item" [ngClass]="{'active':currentPage==numberOfPages-1}"><a class="page-link" [routerLink]="['/search',secondPage]">{{secondPage}}</a></li>
-
-          <li class="page-item" [ngClass]="{'active':currentPage==numberOfPages}"><a class="page-link" [routerLink]="['/search',thirdPage]">{{thirdPage}}</a></li>
-
-          <li class="page-item"><a class="page-link" href="#">...</a></li>
-          <li class="page-item"><a class="page-link" [routerLink]="['/search',numberOfPages]">{{numberOfPages}}</a></li>
-
-          <li class="page-item"><a class="page-link" *ngIf="currentPage<=numberOfPages-1" [routerLink]="['/search',currentPage+1]">Next</a></li>
-        </ul>
-      </nav>
-
+       <mat-paginator (page)="RefreshService($event)" [length]="numberOfPages"
+              pageSize="8"
+              aria-label="Select page">
+       </mat-paginator>
     </div>
   </div>
 </div>

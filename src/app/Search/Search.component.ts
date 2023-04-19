@@ -5,6 +5,7 @@ import { ISearchService } from './Models/ISearchService';
 import { IResponse } from './Models/IResponse';
 import { CityName } from './Models/city-name';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-Search',
@@ -36,7 +37,6 @@ export class SearchComponent implements OnInit {
 
   constructor(private router:Router, private route:ActivatedRoute ,private searchService:SearchServiceService ,private _snackBar: MatSnackBar) {
     route.params.subscribe(val => {
-     this.pageChange();
     });
    }
 
@@ -49,7 +49,7 @@ export class SearchComponent implements OnInit {
     this.searchService.getAllServices(this.city,this.skip,this.take).subscribe(services =>{
       this.serviceList = services;
       this.showSpinner=false;
-      this.numberOfPages = Math.round(this.serviceList.count/8);
+      this.numberOfPages = services.count;
 
     const page= Number(this.route.snapshot.paramMap.get('page'));
     if(page<=this.numberOfPages){
@@ -71,26 +71,25 @@ export class SearchComponent implements OnInit {
     }
   }
 
-  pageChange():void{
-    const page= Number(this.route.snapshot.paramMap.get('page'));
-    if(page<=this.numberOfPages){
-      this.currentPage =page;
-      this.skip=page*8-8;
-    }
-    if(this.currentPage<=this.numberOfPages&&this.currentPage>=this.numberOfPages-2){
-      this.firstPage=this.numberOfPages-2;
-      this.secondPage=this.numberOfPages-1;
-      this.thirdPage=this.numberOfPages;
-    }
-    else{
-      this.firstPage=this.currentPage;
-      this.secondPage=this.currentPage+1;
-      this.thirdPage=this.currentPage+2;
-    }
-  }
+
 
   pickcity(cityIndex: number){
     this.city=cityIndex;
+  }
+
+  RefreshService(event:PageEvent){
+    this.showSpinner=true
+    this.skip=event.pageIndex*8
+    if(this.searchString==''){
+      this.searchService.getAllServices(this.city,this.skip,this.take).subscribe(services=>{
+        this.serviceList.services=services.services;
+        this.showSpinner=false;
+      });
+    }
+    else{
+      this.search();
+    }
+
   }
 
   search(){
@@ -101,10 +100,10 @@ export class SearchComponent implements OnInit {
       this.showSpinner=true;
       console.log(this.searchString);
       this.searchService.search(this.city,this.skip,this.take,this.searchString,0,).subscribe(i=>{
+        this.serviceList.services= i.services;
+        console.log(i.services);
+        this.numberOfPages=i.count;
         this.showSpinner=false;
-        console.log(i);
-        this.serviceList.services=i;
-        console.log(this.serviceList);
       })
     }
   }

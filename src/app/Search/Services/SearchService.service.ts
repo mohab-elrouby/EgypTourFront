@@ -18,7 +18,7 @@ getAllServices(city:CityName,skip:number,take:number):Observable<IResponse> {
   return this.httpClient.get<IResponse>(this.baseApiUrl+`Service/GetAllByCity/${city}/?skip=${skip}&take=${take}`);
 }
 
-search(city:number,skip:number,take:number,searchString:string,rating:number):Observable<ISearchService[]>{
-  return this.httpClient.get<ISearchService[]>(this.baseApiUrl+`Service/Search?searchString=${searchString}&city=${city}&skip=${skip}&take=${take}&rating=${rating}`);
+search(city:number,skip:number,take:number,searchString:string,rating:number):Observable<IResponse>{
+  return this.httpClient.get<IResponse>(this.baseApiUrl+`Service/Search?searchString=${searchString}&city=${city}&skip=${skip}&take=${take}&rating=${rating}`);
 }
 }
