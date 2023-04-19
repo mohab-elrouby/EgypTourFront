@@ -31,11 +31,13 @@ export class SearchComponent implements OnInit {
   @Input()searchString:string='';
 
   serviceList!:IResponse;
+
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action);
   }
 
   constructor(private router:Router, private route:ActivatedRoute ,private searchService:SearchServiceService ,private _snackBar: MatSnackBar) {
+
     route.params.subscribe(val => {
     });
    }

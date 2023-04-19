@@ -13,7 +13,6 @@ import { IUser } from '../../Models/iuser';
 export class SignUpComponent {
   userForm:FormGroup;
   userDto: IUser = {} as IUser;
-
   constructor(private fb:FormBuilder, private signUpService: SignUpService, private router: Router)
   {
     this.userForm = this.fb.group ({
