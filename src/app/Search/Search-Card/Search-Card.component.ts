@@ -30,9 +30,6 @@ export class SearchCardComponent implements OnInit {
 
 
   ngOnChanges(changes: SimpleChanges): void {
-<<<<<<< HEAD
-    this.cropWidth = this.rating*418/5;
-=======
     this.startinghours=new Date(this.searchService.workingHoursStart).getHours();
     this.endhours=new Date(this.searchService.workingHoursEnd).getHours();
     this.rating=this.searchService.avgRating;
@@ -44,7 +41,6 @@ export class SearchCardComponent implements OnInit {
            this.isOpen=true
     }
     this.cropWidth = this.rating*188/5;
->>>>>>> 73b15584925bf3bcb3105d81ac9de28abdf4c259
   }
 
   constructor() {}
