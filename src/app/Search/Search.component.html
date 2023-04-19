@@ -24,32 +24,36 @@
 
       <!-- city section -->
       <p  style="font-size:medium;font-weight: bold;" >City</p>
-      <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="...">
-      <datalist id="datalistOptions">
-        <option *ngFor="let city of cities;index as i" value="{{city}}" id="i">
-      </datalist>
 
-
+      <mat-form-field appearance="fill">
+        <mat-label>Select a city</mat-label>
+        <mat-select disableRipple>
+          <mat-option (click)="pickcity(i)" *ngFor="let city of citieNames;  index as i" [value]="city">{{city}}</mat-option>
+        </mat-select>
+      </mat-form-field>
 
     </div>
     <!-- search  -->
     <div class="col-10  mt-3" style="border-radius: 5px;">
       <div class="row mt-4 ml-3">
         <div class="active-pink-4  input-group " style="width: 700px;height: 50px;">
-          <input class="form-control shadow " type="text" placeholder="Search" aria-label="Search"
+          <input (keydown.enter)="search()" class="form-control shadow " [(ngModel)]="searchString"  type="text" placeholder="Search" aria-label="Search"
             style="border-radius: 0px">
-          <button type="button" class="btn btn-danger shadow" style="width:60px;border-radius: 0px;">
+          <button  (click)="search()" type="button" class="btn btn-danger shadow" style="width:60px;border-radius: 0px;">
             <i class="fas fa-search"></i>
           </button>
         </div>
       </div>
 
-      <app-Search-Card [carousalId]="'1'"></app-Search-Card>
-      <app-Search-Card [carousalId]="'2'"></app-Search-Card>
-      <app-Search-Card [carousalId]="'3'"></app-Search-Card>
-      <app-Search-Card [carousalId]="'4'"></app-Search-Card>
+      <div class="d-flex justify-content-center mt-5">
+        <div *ngIf="showSpinner" class="spinner-border"  role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
 
-
+      <div *ngFor="let item of serviceList.services;index as i">
+        <app-Search-Card [searchService]="item" [carousalId]="item.name"></app-Search-Card>
+      </div>
 
     </div>
     <div class="row mt-5 mb-5">
@@ -72,7 +76,5 @@
       </nav>
 
     </div>
-
   </div>
 </div>
-

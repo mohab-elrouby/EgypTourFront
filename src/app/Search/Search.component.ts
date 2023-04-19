@@ -1,8 +1,10 @@
-import { Component, ElementRef, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router, RouterLinkActive } from '@angular/router';
 import { SearchServiceService } from './Services/SearchService.service';
 import { ISearchService } from './Models/ISearchService';
 import { IResponse } from './Models/IResponse';
+import { CityName } from './Models/city-name';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-Search',
@@ -10,6 +12,10 @@ import { IResponse } from './Models/IResponse';
   styleUrls: ['./Search.component.css']
 })
 export class SearchComponent implements OnInit {
+
+
+  showSpinner:boolean=false;
+
 
   numberOfResults:number = 650;
   numberOfPages :number = Math.round(this.numberOfResults/8);
@@ -20,27 +26,30 @@ export class SearchComponent implements OnInit {
   secondPage:number=this.currentPage+1;
   thirdPage:number=this.currentPage+2;
 
+  @Input()city:number=0;
+  @Input()searchString:string='';
+
   serviceList!:IResponse;
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action);
+  }
 
-
-  constructor(private router:Router, private route:ActivatedRoute ,private searchService:SearchServiceService) {
+  constructor(private router:Router, private route:ActivatedRoute ,private searchService:SearchServiceService ,private _snackBar: MatSnackBar) {
     route.params.subscribe(val => {
      this.pageChange();
     });
    }
 
+  cities : CityName[] =[CityName.Cairo,CityName.Alexandria,CityName.Aswan,CityName.Giza,CityName.Luxor,CityName.RedSea]
+  citieNames : string[] =['Cairo','Alexandria','Aswan','Giza','Luxor','RedSea']
 
 
-
-  cities : string[] =[ 'cairo'  ,'fayoum',
-  'Aswan',
-  'Luxor',]
-
-
-  ngOnInit():void {
-    this.searchService.getAllServices(0,this.skip,this.take).subscribe(services =>{
+  GetAllServices():void{
+    this.showSpinner=true;
+    this.searchService.getAllServices(this.city,this.skip,this.take).subscribe(services =>{
       this.serviceList = services;
-      this.numberOfPages = Math.round(600/8);
+      this.showSpinner=false;
+      this.numberOfPages = Math.round(this.serviceList.count/8);
 
     const page= Number(this.route.snapshot.paramMap.get('page'));
     if(page<=this.numberOfPages){
@@ -48,6 +57,18 @@ export class SearchComponent implements OnInit {
       this.skip=page*8-8;
     }
   });
+  }
+
+
+
+
+  ngOnInit():void {
+    if(this.searchString==''){
+      this.GetAllServices();
+    }
+    else{
+
+    }
   }
 
   pageChange():void{
@@ -67,4 +88,25 @@ export class SearchComponent implements OnInit {
       this.thirdPage=this.currentPage+2;
     }
   }
+
+  pickcity(cityIndex: number){
+    this.city=cityIndex;
+  }
+
+  search(){
+    if(this.searchString==''){
+      this.GetAllServices();
+    }
+    else{
+      this.showSpinner=true;
+      console.log(this.searchString);
+      this.searchService.search(this.city,this.skip,this.take,this.searchString,0,).subscribe(i=>{
+        this.showSpinner=false;
+        console.log(i);
+        this.serviceList.services=i;
+        console.log(this.serviceList);
+      })
+    }
+  }
 }
+

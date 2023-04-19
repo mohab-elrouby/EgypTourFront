@@ -6,8 +6,10 @@ import { SearchCardComponent } from './Search-Card/Search-Card.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
+import { PostModule } from '../post/post.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
-// import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 const routes:Routes =[
 { path: '', component: SearchComponent  },
 
@@ -22,6 +24,12 @@ const routes:Routes =[
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    PostModule,
+    MatFormFieldModule,
+    MatAutocompleteModule,
+    MatSelectModule,
+    MatButtonModule,
+    MatSnackBarModule
   ]
   ,
   exports:[

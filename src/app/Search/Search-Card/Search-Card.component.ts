@@ -1,5 +1,5 @@
 import { Component, OnInit,OnChanges,SimpleChanges, Input } from '@angular/core';
-
+import { ISearchService } from '../Models/ISearchService';
 @Component({
   selector: 'app-Search-Card',
   templateUrl: './Search-Card.component.html',
@@ -8,6 +8,7 @@ import { Component, OnInit,OnChanges,SimpleChanges, Input } from '@angular/core'
 export class SearchCardComponent implements OnInit {
 
 
+  baseUrl:string="http://localhost:5275"
 
   rating:number=2.5;
   cropWidth: number = this.rating*175/5;
@@ -17,10 +18,28 @@ export class SearchCardComponent implements OnInit {
   @Input()
   carousalId! : string ;
 
+  isOpen:boolean=false;
+
   hashcarousalId : string = `#${this.carousalId}`
+
+  now:number=new Date().getHours();
+  startinghours!:number;
+  endhours!:number;
+
+  @Input()searchService!:ISearchService;
 
 
   ngOnChanges(changes: SimpleChanges): void {
+    this.startinghours=new Date(this.searchService.workingHoursStart).getHours();
+    this.endhours=new Date(this.searchService.workingHoursEnd).getHours();
+    this.rating=this.searchService.avgRating;
+    console.log(new Date().getHours());
+
+    console.log(new Date(this.searchService.workingHoursStart).getHours());
+
+    if((this.now>this.startinghours&&this.now<this.endhours)){
+           this.isOpen=true
+    }
     this.cropWidth = this.rating*188/5;
   }
 

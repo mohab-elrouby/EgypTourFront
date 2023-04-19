@@ -2,50 +2,38 @@
     background-color: #f2f2f2;
     padding: 10px;
   }
-  
+
   .sidebar h3 {
     margin-top: 0;
     font-size: 24px;
   }
-  
+
   .sidebar ul {
     list-style: none;
     padding: 0;
     margin: 10px 0;
   }
-  
+
   .sidebar li {
     margin: 5px 0;
     display: flex;
     justify-content: space-between;
   }
-  
-  .delete-button {
-    color: #222;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-  }
-  .delete-button:hover{
-    background-color: #ddd;
-  }
+
+
+
   .add-trip {
     display: flex;
     align-items: center;
   }
-  
+
   .add-button{
     margin-bottom: 10px;
     padding: 5px;
     border-radius: 5px;
     cursor: pointer;
     width: 100%;
-    border: #ddd solid 1px;    
-  }
-
-  .add-button:hover{
-    background-color: #ddd;
+    border: #ddd solid 1px;
   }
 
   li  {
@@ -56,13 +44,17 @@
     width: 100%;
     margin-right: 10px;
   }
-  
+
   li span {
     width: 100%;
     border-radius: 5px;
     padding: 5px;
   }
 
-  li span:hover {
-    background-color: #ddd;
-  }
+#rip-side-container:hover{
+background-color: #cfcfcf;
+}
+
+#rip-side-container{
+border-radius: 5px;
+}

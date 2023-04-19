@@ -1,4 +1,4 @@
-import { Component,ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component,ElementRef, Input, OnInit,OnChanges, ViewChild, SimpleChanges } from '@angular/core';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 import { IActivity } from '../../Models/IActivity';
 import { TripService } from '../../Services/trip.service';
@@ -7,7 +7,7 @@ import { TripService } from '../../Services/trip.service';
   templateUrl: './trip-schedule.component.html',
   styleUrls: ['./trip-schedule.component.css']
 })
-export class TripScheduleComponent implements OnInit {
+export class TripScheduleComponent implements OnInit,OnChanges {
 
 
 processing: boolean = false;
@@ -20,13 +20,19 @@ processing: boolean = false;
   @Input() activities!:IActivity[];
 
   @Input() tripId!:number;
+
   readonly:boolean=true;
   constructor(private tripService: TripService) { }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if(!(this.tripId===undefined)){
+      this.UpdateActivities();
+    }
+  }
 
   addedActivity!:IActivity;
 
   ngOnInit() {
-    this.UpdateView();
   }
 
   drop(event: CdkDragDrop<{id?:number,name:string}[]>) {
@@ -100,7 +106,7 @@ processing: boolean = false;
 
   UpdateActivities():void{
     this.processing=true;
-    this.tripService.GetById(5).subscribe(trip =>{
+    this.tripService.GetById(this.tripId).subscribe(trip =>{
       this.activities=trip.activities;
       this.processing=false;
       this.UpdateView();

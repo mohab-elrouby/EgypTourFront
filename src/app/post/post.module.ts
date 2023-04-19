@@ -37,6 +37,8 @@ const routes:Routes = [
   ],
   exports: [
     AddPostComponent,
-    PostListComponent,]
+    PostListComponent,
+    TimeOnlyPipe
+  ]
 })
 export class PostModule { }
