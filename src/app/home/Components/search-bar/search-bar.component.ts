@@ -12,10 +12,8 @@ export class SearchBarComponent {
     searchInput : string = '';
     selectedCity:string='';
     cityName:string='0';
-    cityNames = Object.values(CityName).slice(0,5);
 
 
   constructor(private searchService: HomeSearchService , private router: Router) {}
-
 }
 

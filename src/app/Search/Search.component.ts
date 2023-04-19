@@ -77,11 +77,7 @@ export class SearchComponent implements OnInit {
       params=>{
         console.log(params);
       }
-    ) 
-    if(this.searchString==''){
-      this.GetAllServices();
-    }
-    else{
+    )
     this.route.queryParams.subscribe(
       params=>{
         if(params['q']!=undefined&&params['city']!=undefined){
@@ -93,7 +89,7 @@ export class SearchComponent implements OnInit {
            this.GetAllServices();
         }
       }
-    )}
+    )
 
   }
 
