@@ -10,17 +10,12 @@ import { HomeSearchService } from '../../Services/home-search.service';
 })
 export class SearchBarComponent {
     searchInput : string = '';
-    selectedCity!:CityName;
-  data:{}={
-    searchString:'',
-    city:0,
-  };
+    selectedCity:string='';
+    cityName:string='0';
+    cityNames = Object.values(CityName).slice(0,5);
+
+
   constructor(private searchService: HomeSearchService , private router: Router) {}
-  cityNames = Object.values(CityName).slice(0,5);
-  getSearchResults(){
-    if(this.cityNames.includes(this.selectedCity)) {
-      // this.searchService. getAllServices(this.searchInput ,Number(Object.values(CityName).indexOf(this.selectedCity)) ,0,8 ).subscribe({})
-    }
-  }
+
 }
-    
+
