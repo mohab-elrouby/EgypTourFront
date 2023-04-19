@@ -32,21 +32,17 @@
             <a class="nav-link " href="#"><i class="fa-solid fa-bell fs-4 text-primary"></i></a>
           </li>
             
-        <li class="nav-item">
-          <a class="nav-link " routerLink="service">Servic</a>
-        </li>
-       
-          <li class="nav-item login" [ngClass]="{loggedIn: 'hide'}">
+          <li class="nav-item login">
             <a class="btn btn-login px-3 mx-3" routerLink="user/login" >Login</a>
           </li>
         <li class="nav-item signup">
           <a class=" btn btn-primary" routerLink="user/signup">Sign up</a>
         </li>
-        <li class="nav-item d-none"[ngClass]="{loggedIn: 'show'}">
-          <a class=" px-3 mx-3 nav-link text-dark" routerLink="user/login">Hello, {{loggedUserFname}}</a>
+        <li class="nav-item ">
+          <a class=" px-3 mx-3 nav-link text-dark" routerLink="user/login">Hello,{{loggedUserFname}}</a>
         </li>
-        <li class="nav-item signout">
-          <a class="btn btn-danger px-3 mx-3" routerLink="user/login">Sign out</a>
+        <li class="nav-item signout" >
+          <a class="btn btn-danger px-3 mx-3" routerLink="user/login"(click)="handleSignOut()">Sign out</a>
         </li>
         
 

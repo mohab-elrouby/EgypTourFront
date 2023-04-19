@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -6,23 +7,28 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit{
-  
+  constructor( private router: Router) {}
+
   loggedUserObj = localStorage.getItem('loggedUser');
   loggedUserFname!:string;
   loggedIn!:boolean ;
-  getUserInfo():void{
-    if(!this.loggedUserObj || this.loggedUserObj==null){
-      this.loggedUserFname = JSON.parse(this.loggedUserObj!).fname;
-    }
-  }
+
   ngOnInit(): void {
     if(!this.loggedUserObj || this.loggedUserObj==null){
+      this.loggedUserFname = JSON.parse(this.loggedUserObj!)['fname'];
       this.loggedIn = false;
-      
+      console.log(this.loggedUserFname);
   }
   else{
     this.loggedIn = true;
   }
-  console.log(this.loggedIn);
 }
+handleSignOut() {
+  this.router.navigate(['/']);
+  this.loggedIn = false;
+  localStorage.clear();
+  
+
+}
+
 }
