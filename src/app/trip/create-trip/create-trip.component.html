@@ -34,8 +34,14 @@
   
     <div class="mb-3">
       <label for="" class="form-label">Trip location</label>
+      <select data-trigger="" name="choices-single-defaul" class="choosee form-select" name="selectedCity" [(ngModel)]="selectedCity">
+        <option selected disabled class="first">choose a city</option>
+        <option *ngFor="let cityName of cityNames" [value]="cityName">{{cityName}}</option>
+      </select>
+
+      <!-- <label for="" class="form-label">Trip location</label>
       <input type="text" 
-        class="form-control" name="location" id="" aria-describedby="helpId" placeholder="Ex: Alexandria" [(ngModel)] = "trip.location">
+        class="form-control" name="location" id="" aria-describedby="helpId" placeholder="Ex: Alexandria" [(ngModel)] = "trip.location"> -->
     </div>
   
     <div class="row">

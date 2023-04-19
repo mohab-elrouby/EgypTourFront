@@ -4,6 +4,7 @@ import { TripService } from '../Services/trip.service';
 import { Router } from '@angular/router';
 import { Itrip } from '../Models/Itrip';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CityName } from 'src/app/Search/Models/city-name';
 
 @Component({
   selector: 'app-create-trip',
@@ -16,6 +17,9 @@ export class CreateTripComponent {
   loggedUserId = JSON.parse(this.loggedUserObj!).id;
   loggedUserFname = JSON.parse(this.loggedUserObj!).fname;
   loggedUserLname = JSON.parse(this.loggedUserObj!).lname;
+  searchInput : string = '';
+  selectedCity!:CityName;
+  cityNames = Object.values(CityName).slice(0,5);
 
   trip : Itrip = {
     name:"",
