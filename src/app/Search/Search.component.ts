@@ -50,6 +50,8 @@ export class SearchComponent implements OnInit {
     this.showSpinner=true;
     this.searchService.getAllServices(this.city,this.skip,this.take).subscribe(services =>{
       this.serviceList = services;
+      console.log(services);
+      console.log(this.serviceList);
       this.showSpinner=false;
       this.numberOfPages = services.count;
 
@@ -108,6 +110,10 @@ export class SearchComponent implements OnInit {
         this.showSpinner=false;
       })
     }
+  }
+
+  openServiceDetails(id:number){
+    this.router.navigate([`/service/${id}`])
   }
 }
 
