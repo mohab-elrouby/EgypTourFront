@@ -1,3 +1,4 @@
+import { ILocation } from "src/app/trip/Models/ILocation";
 import { IImage } from "./IImage";
 
 export interface ISearchService {
@@ -8,4 +9,7 @@ export interface ISearchService {
   avgRating:number;
   profileImage:string;
   firstReview:string;
+  workingHoursEnd: string;
+  workingHoursStart: string;
+  location:ILocation
 }

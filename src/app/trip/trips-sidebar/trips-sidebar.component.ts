@@ -13,6 +13,11 @@ import { DeleteTripComponent } from './delete-trip/delete-trip.component';
 })
 export class TripsSidebarComponent {
 
+  loggedUserObj = localStorage.getItem('loggedUser');
+  loggedUserId = JSON.parse(this.loggedUserObj!).id;
+  loggedUserFname = JSON.parse(this.loggedUserObj!).fname;
+  loggedUserLname = JSON.parse(this.loggedUserObj!).lname;
+
   @Output() idEmitter = new EventEmitter<number>();
   dialogRef : MatDialogRef<CreateTripComponent,any> | null = null;
 
@@ -49,7 +54,7 @@ export class TripsSidebarComponent {
   }
 
   getTrips(){
-    this.tripService.GetAll(1).subscribe({
+    this.tripService.GetAll(this.loggedUserId).subscribe({
       next: (trips:any) => {
         this.trips = trips;
         console.log(this.trips);

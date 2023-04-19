@@ -1,3 +1,6 @@
-<app-landing-serction></app-landing-serction>
-<app-service-description></app-service-description>
+<app-landing-serction [serviceName] = "serviceDto.name" 
+[ratingValue] = "serviceDto.avgRating" [WorkingHoursEnd] = "serviceDto.workingHoursEnd"
+ [WorkingHoursStart] = "serviceDto.workingHoursStart" [img] = "serviceDto.profileImage" [Location] ="serviceDto.location"
+></app-landing-serction>
+<app-service-description [description] = "serviceDto.description"></app-service-description>
 <app-review-list></app-review-list>

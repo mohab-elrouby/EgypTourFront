@@ -1,6 +1,9 @@
+import { IReviewer } from "./ireviewer";
+
 export interface IserviceReview {
     reviewId :string;
-    Date:Date;
-    Rating:number;
-    Reviewer:object
+    date:Date;
+    rating:number;
+    reviewer:IReviewer
+    content:string
 }

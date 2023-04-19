@@ -89,9 +89,7 @@ addCommentToPost(comment:IComment):void {
     this.commentInput.nativeElement.value = '';
     this.ProcessingComment = false;
     console.log( this.post.find(x=>x.id == comment.postId));
-  }
-    
-  );
+  });
 }
 
 

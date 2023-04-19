@@ -12,6 +12,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class CreateTripComponent {
   addTripForm:FormGroup;
+  loggedUserObj = localStorage.getItem('loggedUser');
+  loggedUserId = JSON.parse(this.loggedUserObj!).id;
+  loggedUserFname = JSON.parse(this.loggedUserObj!).fname;
+  loggedUserLname = JSON.parse(this.loggedUserObj!).lname;
 
   trip : Itrip = {
     name:"",
@@ -19,7 +23,7 @@ export class CreateTripComponent {
     start: new Date(),
     end: new Date(),
     backgroundImage: "",
-    ownerId: 1
+    ownerId: this.loggedUserId
   } as Itrip;
 
 

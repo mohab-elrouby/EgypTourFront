@@ -14,7 +14,7 @@
 
       <!-- Modal body -->
       <div class="modal-body">
-        <form action="/process-comment" method="POST">
+        <form action="#" method="">
           <div class="row">
               <div class="col-sm-12 d-flex">
             
@@ -30,9 +30,9 @@
               <div>
         
           <!-- <label for="comment" >Comment:</label><br> -->
-          <textarea id="comment" name="comment" rows="6" cols="62" class=" mt-3 caption"></textarea><br>
+          <textarea id="comment" name="comment" rows="6" cols="62" class=" mt-3 caption" [(ngModel)] = "reviewContent"></textarea><br>
         
-          <input type="submit" value="Submit" style="background-color: red;" class="btn btn-danger mb-4 mt-2">
+          <input type="submit" value="Submit" style="background-color: red;" class="btn btn-danger mb-4 mt-2" (click) = "submitReview()" data-bs-dismiss="modal">
         </div>
         </div>
         </form>

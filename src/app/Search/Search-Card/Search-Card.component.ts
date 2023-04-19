@@ -10,7 +10,7 @@ export class SearchCardComponent implements OnInit {
 
 
   rating:number=2.5;
-  cropWidth: number = this.rating*175/5;
+  cropWidth: number = this.rating*475/5;
   mousein :Boolean =false;
   mouseout :Boolean =false;
 
@@ -21,7 +21,7 @@ export class SearchCardComponent implements OnInit {
 
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.cropWidth = this.rating*188/5;
+    this.cropWidth = this.rating*418/5;
   }
 
   constructor() {}

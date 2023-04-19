@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-service-description',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./service-description.component.css']
 })
 export class ServiceDescriptionComponent {
-Description:string = "Fayoum grand Hotel is a five star Hotel only for tourists based in nasr st , down town .";
+  @Input() description:string = "";
 }
