@@ -46,6 +46,7 @@ export class TripsSidebarComponent {
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
       this.getTrips();
+      location.href=`/trips`
     });
   }
   displayTrip(id:number){

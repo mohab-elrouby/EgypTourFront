@@ -1,4 +1,4 @@
-<div class="container py-1 h-100">
+<div *ngIf="!isLogged" class="container py-1 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-lg-8 col-xl-6">
         <div class="card">
@@ -47,9 +47,8 @@
                   </div>
               </div>
               <p>Not a member? <a routerLink = "/user/signup" href="#">Create account</a></p>
-              <button type="submit" class="btn btn-success btn-lg mb-1"  >Login</button>
-              
-
+              <button type="submit" class="btn btn-success btn-lg mb-1">Login</button>
+              <span *ngIf="wrongCredentials" class="text-danger ms-4"> Wrong username Or Password</span>
             </form>
 
           </div>
@@ -57,4 +56,3 @@
       </div>
     </div>
   </div>
- 

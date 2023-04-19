@@ -13,14 +13,22 @@ import { LoginRequest } from '../../Models/login-request';
 })
 export class LoginComponent {
   userForm: FormGroup;
-
+  wrongCredentials:boolean=false;
   loginRequest: LoginRequest = {} as LoginRequest;
+  isLogged:boolean=true;
+  loggedUserObj = localStorage.getItem('loggedUser');
+
 
   constructor(private fb: FormBuilder, private signUpService: SignUpService, private router: Router) {
     this.userForm = this.fb.group({
       username: ['', [Validators.required, Validators.pattern("^[A-Za-z][A-Za-z0-9_]{3,29}$")]],
       password: ['', [Validators.required, Validators.minLength(8)]],
     })
+
+    if(this.loggedUserObj==null){
+      this.isLogged=false;
+    }
+
   }
 
   public CheckInvalidControls() {
@@ -50,15 +58,15 @@ export class LoginComponent {
           console.log(response);
 
           if (response.token == "") {
-            console.log('wrong credintials');
+            this.wrongCredentials=true;
           }
           else {
             console.log('User registered successfully!');
-            // redirect to login page
             localStorage.setItem("jwt", response.token);
             localStorage.setItem("loggedUser", JSON.stringify(response.userDTO));
-            this.router.navigate(['/home']);
             localStorage.getItem("loggedUser")
+            this.router.navigate(['/home']);
+            location.href=`/home`
           }
         },
         error => {
